@@ -1,0 +1,8 @@
+/node_modules/
+*.log
+tsconfig.tsbuildinfo
+.idea
+.vscode
+.*cache
+.DS_Store
+.env

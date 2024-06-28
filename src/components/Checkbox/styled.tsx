@@ -1,13 +1,14 @@
 import styled from "@emotion/styled";
 import { Checkbox, FormControlLabel } from "@mui/material";
 import { CheckboxProps, LabelProps } from "@/components/Checkbox/index";
-import { getConditionalCss } from "@/utils/emotion";
+import { generateEmotionStyle } from "@/utils/emotion";
 import { css } from "@emotion/react";
 
 export const StyledLabel = styled(FormControlLabel)<LabelProps>`
   margin: 0;
 
-  ${({ labelTextSize }) => getConditionalCss("fontSize", labelTextSize, "px")};
+  ${({ labelTextSize }) =>
+    generateEmotionStyle("fontSize", labelTextSize, "px")};
 
   & .MuiTypography-root {
     font-size: 14px;

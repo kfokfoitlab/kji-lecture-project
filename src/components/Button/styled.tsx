@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { Button } from "@mui/material";
 import { ButtonProps } from "@/components/Button/index";
-import { getConditionalCss } from "@/utils/emotion";
+import { generateEmotionStyle } from "@/utils/emotion";
 import { css } from "@emotion/react";
 
 export const StyledButton = styled(
@@ -20,16 +20,16 @@ export const StyledButton = styled(
   }: ButtonProps) => <Button {...args} />,
 )`
   box-shadow: none;
-  ${({ fontSize }) => getConditionalCss("fontSize", fontSize, "px")};
-  ${({ fontWeight }) => getConditionalCss("fontWeight", fontWeight)};
+  ${({ fontSize }) => generateEmotionStyle("fontSize", fontSize, "px")};
+  ${({ fontWeight }) => generateEmotionStyle("fontWeight", fontWeight)};
   ${({ backgroundColor }) =>
-    getConditionalCss("backgroundColor", backgroundColor)};
+    generateEmotionStyle("backgroundColor", backgroundColor)};
   ${({ borderRadius }) =>
-    getConditionalCss("borderRadius", borderRadius, "px")};
-  ${({ textColor }) => getConditionalCss("color", textColor)};
-  ${({ width }) => getConditionalCss("width", width, "px")};
-  ${({ height }) => getConditionalCss("height", height, "px")};
-  ${({ padding }) => getConditionalCss("padding", padding)};
+    generateEmotionStyle("borderRadius", borderRadius, "px")};
+  ${({ textColor }) => generateEmotionStyle("color", textColor)};
+  ${({ width }) => generateEmotionStyle("width", width, "px")};
+  ${({ height }) => generateEmotionStyle("height", height, "px")};
+  ${({ padding }) => generateEmotionStyle("padding", padding)};
 
   ${({ borderColor }) =>
     borderColor &&
@@ -40,7 +40,7 @@ export const StyledButton = styled(
   &:hover {
     box-shadow: none;
     ${({ backgroundColor, hoverBackgroundColor }) =>
-      getConditionalCss(
+      generateEmotionStyle(
         "backgroundColor",
         hoverBackgroundColor || backgroundColor,
       )};

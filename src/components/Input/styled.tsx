@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { InputProps } from "@/components/Input/index";
 import { IconButton, TextField } from "@mui/material";
 import { css } from "@emotion/react";
-import { getConditionalCss } from "@/utils/emotion";
+import { generateEmotionStyle } from "@/utils/emotion";
 import { IconButtonProp } from "@/components/Button";
 
 export const StyledTextField = styled(
@@ -24,7 +24,7 @@ export const StyledTextField = styled(
 
   &.MuiTextField-root {
     & .MuiInput-input {
-      ${({ padding }) => getConditionalCss("padding", padding)};
+      ${({ padding }) => generateEmotionStyle("padding", padding)};
     }
 
     & .MuiOutlinedInput-input {

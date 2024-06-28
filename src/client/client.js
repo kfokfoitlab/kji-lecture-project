@@ -4,7 +4,7 @@ const fs = require("fs");
 
 dotenv.config({ path: ".env" });
 
-const url = `${process.env.VITE_API_URL}/v3/api-docs`;
+const url = `${process.env.VITE_API_URL}/v3/api-docs/newdeal-app`;
 
 async function getDocs() {
   const { data } = await axios.get(url);

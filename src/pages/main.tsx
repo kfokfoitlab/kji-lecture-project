@@ -1,6 +1,8 @@
 import {
   FindMiniProjectQuestionsParams,
+  FindMiniProjectsParams,
   MiniProjectQuestionResponseDto,
+  MiniProjectResponseDto,
 } from "@/@swagger/data-contracts";
 import Button from "@/components/Button";
 import { API } from "@/utils/api";
@@ -10,6 +12,9 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 
 export default function MainPage() {
   const [data, setData] = useState<MiniProjectQuestionResponseDto[]>([]);
+  const [miniprojectData, setMiniprojectData] = useState<
+    MiniProjectResponseDto[] | null
+  >(null);
   const [searchParams] = useSearchParams();
   const username = searchParams.get("username");
   const kdcType = searchParams.get("kdcType") as
@@ -31,7 +36,17 @@ export default function MainPage() {
           kdcType,
         },
       });
+      const { data: miniprojectData } = await API.get<
+        MiniProjectResponseDto[],
+        FindMiniProjectsParams
+      >(`/app/miniProjects`, {
+        params: {
+          kdcType,
+          username,
+        },
+      });
 
+      setMiniprojectData(miniprojectData);
       setData(data.sort((a, b) => a.chapter! - b.chapter!));
     } catch (e) {
       //
@@ -73,6 +88,12 @@ export default function MainPage() {
               backgroundColor="#033568"
               textColor="#fff"
               fontWeight="normal"
+              disabled={Boolean(
+                miniprojectData?.find(
+                  ({ chapter, level }) =>
+                    value.chapter === chapter && value.level === level,
+                )?.isComplete,
+              )}
               onClick={() =>
                 navigate(
                   `/detail/${value.seq}?username=${username}&kdcType=${kdcType}`,

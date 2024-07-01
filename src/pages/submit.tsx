@@ -1,6 +1,7 @@
 import {
   FileResponseDto,
   MiniProjectQuestionResponseDto,
+  MiniProjectRequestDto,
 } from "@/@swagger/data-contracts";
 import Button from "@/components/Button";
 import {
@@ -10,11 +11,13 @@ import {
 } from "@/data/link";
 import { API } from "@/utils/api";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 
 export default function SubmitPage() {
   const params = useParams();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const username = searchParams.get("username");
   const [data, setData] = useState<MiniProjectQuestionResponseDto | null>(null);
   const [linkData, setLinkData] = useState<LinkListData | null>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -43,12 +46,16 @@ export default function SubmitPage() {
 
   const handleChangeFile = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
+      if (e.target.files[0].size > 2000 * 1024 * 1024) {
+        alert("2GB 이하의 파일만 업로드 가능합니다.");
+        return;
+      }
       setSelectedFile(e.target.files[0]);
     }
   };
 
   const handleClickSubmit = async () => {
-    if (!data) {
+    if (!data || !data.chapter || !data.kdcType || !data.level || !username) {
       return;
     }
 
@@ -66,10 +73,21 @@ export default function SubmitPage() {
     }
 
     try {
+      const { data: postSeq } = await API.post<
+        number,
+        {},
+        MiniProjectRequestDto
+      >(`/app/miniProject`, {
+        chapter: data.chapter,
+        kdcType: data.kdcType,
+        level: data.level,
+        username,
+      });
+
       const formData = new FormData();
       formData.append("files", selectedFile);
       const { data: res } = await API.post<FileResponseDto>(
-        `/app/file/TYPE_MINI_PROJECT/${data.seq}`,
+        `/app/file/TYPE_MINI_PROJECT/${postSeq}`,
         formData,
       );
 

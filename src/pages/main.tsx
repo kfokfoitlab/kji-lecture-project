@@ -81,27 +81,49 @@ export default function MainPage() {
             </p>
           </TableDataContent>
           <TableData>
-            <Button
-              fullWidth
-              height={40}
-              borderRadius={40}
-              backgroundColor="#033568"
-              textColor="#fff"
-              fontWeight="normal"
-              disabled={Boolean(
-                miniprojectData?.find(
-                  ({ chapter, level }) =>
-                    value.chapter === chapter && value.level === level,
-                )?.isComplete,
-              )}
-              onClick={() =>
-                navigate(
-                  `/detail/${value.seq}?username=${username}&kdcType=${kdcType}`,
-                )
-              }
-            >
-              제출하기
-            </Button>
+            {miniprojectData?.find(
+              ({ chapter, level }) =>
+                value.chapter === chapter && value.level === level,
+            )?.isComplete ? (
+              <Button
+                fullWidth
+                height={40}
+                padding="0"
+                borderRadius={40}
+                backgroundColor="#033568"
+                textColor="#fff"
+                fontWeight="normal"
+                onClick={() =>
+                  navigate(
+                    `/detail/${value.seq}?username=${username}&kdcType=${kdcType}&miniProjectSeq=${
+                      miniprojectData?.find(
+                        ({ chapter, level }) =>
+                          value.chapter === chapter && value.level === level,
+                      )!.seq
+                    }`,
+                  )
+                }
+              >
+                제출완료
+              </Button>
+            ) : (
+              <Button
+                fullWidth
+                height={40}
+                padding="0"
+                borderRadius={40}
+                backgroundColor="#033568"
+                textColor="#fff"
+                fontWeight="normal"
+                onClick={() =>
+                  navigate(
+                    `/detail/${value.seq}?username=${username}&kdcType=${kdcType}`,
+                  )
+                }
+              >
+                제출하기
+              </Button>
+            )}
           </TableData>
         </TableLine>
       ))}

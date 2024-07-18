@@ -2,6 +2,7 @@ import {
   FileResponseDto,
   MiniProjectQuestionResponseDto,
   MiniProjectRequestDto,
+  MiniProjectResponseDto,
 } from "@/@swagger/data-contracts";
 import Button from "@/components/Button";
 import {
@@ -18,7 +19,10 @@ export default function SubmitPage() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const username = searchParams.get("username");
+  const miniprojectSeq = searchParams.get("miniProjectSeq");
   const [data, setData] = useState<MiniProjectQuestionResponseDto | null>(null);
+  const [miniprojectData, setMiniprojectData] =
+    useState<MiniProjectResponseDto | null>(null);
   const [linkData, setLinkData] = useState<LinkListData | null>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
@@ -39,6 +43,21 @@ export default function SubmitPage() {
             chapter === data.chapter && level === data.level,
         ) || null,
       );
+    } catch (e) {
+      //
+    }
+  };
+
+  const fetchMiniProjectData = async () => {
+    if (!miniprojectSeq || !username) {
+      return;
+    }
+    try {
+      const { data } = await API.get<MiniProjectResponseDto>(
+        `/app/miniProject/${miniprojectSeq}?username=${username}`,
+      );
+
+      setMiniprojectData(data);
     } catch (e) {
       //
     }
@@ -103,7 +122,11 @@ export default function SubmitPage() {
 
   useEffect(() => {
     fetchData();
-  }, [params]);
+
+    if (miniprojectSeq) {
+      fetchMiniProjectData();
+    }
+  }, [params, miniprojectSeq]);
 
   if (!data || !linkData) {
     return null;
@@ -149,6 +172,13 @@ export default function SubmitPage() {
             제출하기
           </Button>
         </div>
+
+        {miniprojectData?.miniProjectAnswer && (
+          <div className="pt-[40px] bt-palette-gray300 mt-[40px]">
+            <p className="text-[20px] font-[500] mb-[16px]">[첨삭내용]</p>
+            <p>{miniprojectData.miniProjectAnswer.content}</p>
+          </div>
+        )}
       </div>
     </div>
   );

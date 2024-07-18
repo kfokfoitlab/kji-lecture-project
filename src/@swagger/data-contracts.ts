@@ -172,6 +172,12 @@ export interface MiniProjectRequestDto {
   username: string;
 }
 
+export interface MiniProjectAnswerRequestDto {
+  content?: string;
+  username?: string;
+  name?: string;
+}
+
 export interface LikeRequestDto {
   /** 좋아요 타입 */
   likeType: "TYPE_PRODUCT" | "TYPE_DEBATE" | "TYPE_REVIEW";
@@ -1093,20 +1099,6 @@ export interface CategoryResponseDto {
   productResponseDto?: Category;
 }
 
-export interface Certificate {
-  /** @format date-time */
-  createdDtime?: string;
-  /** @format date-time */
-  modifiedDtime?: string;
-  /** @format int32 */
-  status?: number;
-  /** @format int64 */
-  seq?: number;
-  courseUser?: CourseUser;
-  files?: File[];
-  file?: File[];
-}
-
 export interface CertificateItem {
   /** @format int64 */
   seq?: number;
@@ -1402,7 +1394,6 @@ export interface CourseUser {
   productSeq?: number;
   courseClass?: CourseClass;
   confirmation?: Confirmation;
-  certificate?: Certificate;
   courseProgressList?: CourseProgress[];
   files?: File[];
   courseRequestStatus?: "WAIT" | "COMPLETE";
@@ -1978,6 +1969,14 @@ export interface OtpAuthResponseDto {
   status: boolean;
 }
 
+export interface MiniProjectAnswerResponseDto {
+  /** @format int64 */
+  seq?: number;
+  content?: string;
+  username?: string;
+  name?: string;
+}
+
 export interface MiniProjectResponseDto {
   /** @format int64 */
   seq: number;
@@ -1990,6 +1989,7 @@ export interface MiniProjectResponseDto {
   isComplete: boolean;
   /** s3 파일 */
   s3Files?: FileResponseDto[];
+  miniProjectAnswer?: MiniProjectAnswerResponseDto;
 }
 
 export interface MiniProjectQuestionResponseDto {
@@ -2360,11 +2360,11 @@ export interface PageDebateCommentResponseDto {
   /** @format int32 */
   number?: number;
   sort?: SortObject;
-  first?: boolean;
-  last?: boolean;
   /** @format int32 */
   numberOfElements?: number;
   pageable?: PageableObject;
+  first?: boolean;
+  last?: boolean;
   empty?: boolean;
 }
 
@@ -2382,8 +2382,8 @@ export interface PageableObject {
 
 export interface SortObject {
   empty?: boolean;
-  sorted?: boolean;
   unsorted?: boolean;
+  sorted?: boolean;
 }
 
 export interface PageResponseDtoCourseResponseDto {
@@ -2875,14 +2875,14 @@ export interface FindMiniProjectsParams {
   username: string;
 }
 
+export interface FindMiniProjectQuestionsParams {
+  kdcType: "BIO_HEALTH_DATA" | "BIO_HEALTH_DESIGN";
+}
+
 export interface FindMiniProjectParams {
   username: string;
   /** @format int64 */
   miniProjectSeq: number;
-}
-
-export interface FindMiniProjectQuestionsParams {
-  kdcType: "BIO_HEALTH_DATA" | "BIO_HEALTH_DESIGN";
 }
 
 export interface FindMyLikePageParams {

@@ -3,14 +3,14 @@ import {
   MiniProjectQuestionResponseDto,
   MiniProjectRequestDto,
   MiniProjectResponseDto,
-} from "../@swagger/data-contracts";
+} from "@/@swagger/data-contracts";
 import Button from "../components/Button";
 import {
   BIO_HEALTH_DATA_LINK_LIST,
   BIO_HEALTH_DESIGN_LINK_LIST,
   LinkListData,
-} from "../data/link";
-import { API } from "../utils/api";
+} from "@/data/link";
+import { API } from "@/utils/api";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 

@@ -3,9 +3,9 @@ import {
   FindMiniProjectsParams,
   MiniProjectQuestionResponseDto,
   MiniProjectResponseDto,
-} from "../@swagger/data-contracts";
+} from "@/@swagger/data-contracts";
 import Button from "../components/Button";
-import { API } from "../utils/api";
+import { API } from "@/utils/api";
 import styled from "@emotion/styled";
 import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";

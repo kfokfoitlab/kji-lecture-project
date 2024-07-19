@@ -1,0 +1,10 @@
+/node_modules/
+/build/
+/client/
+/public/
+/scripts/
+*.config.js
+*.config.ts
+*.json
+**/client/*.js
+*/@swagger

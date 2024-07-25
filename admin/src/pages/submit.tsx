@@ -1,134 +1,81 @@
 import {
   FileResponseDto,
+  MiniProjectAnswerRequestDto,
   MiniProjectQuestionResponseDto,
-  MiniProjectRequestDto,
   MiniProjectResponseDto,
 } from "@/@swagger/data-contracts";
 import Button from "../components/Button";
-import {
-  BIO_HEALTH_DATA_LINK_LIST,
-  BIO_HEALTH_DESIGN_LINK_LIST,
-  LinkListData,
-} from "@/data/link";
 import { API } from "@/utils/api";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { fileDownload } from "@/utils/file";
 
 export default function SubmitPage() {
   const params = useParams();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const username = searchParams.get("username");
-  const miniprojectSeq = searchParams.get("miniProjectSeq");
+  const miniProjectSeq = searchParams.get("miniProjectSeq");
   const [data, setData] = useState<MiniProjectQuestionResponseDto | null>(null);
-  const [miniprojectData, setMiniprojectData] =
+  const [miniProjectData, setMiniProjectData] =
     useState<MiniProjectResponseDto | null>(null);
-  const [linkData, setLinkData] = useState<LinkListData | null>(null);
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [content, setContent] = useState("");
 
   const fetchData = async () => {
     try {
       const { data } = await API.get<MiniProjectQuestionResponseDto>(
         `/app/miniProjectQuestion/${params.seq}`,
       );
+      const { data: miniProjectData } = await API.get<MiniProjectResponseDto>(
+        `/app/miniProject/${miniProjectSeq}`,
+        {
+          params: {
+            username,
+          },
+        },
+      );
 
+      setMiniProjectData(miniProjectData);
       setData(data);
-      const target =
-        data.kdcType === "BIO_HEALTH_DATA"
-          ? BIO_HEALTH_DATA_LINK_LIST
-          : BIO_HEALTH_DESIGN_LINK_LIST;
-      setLinkData(
-        target.find(
-          ({ chapter, level }) =>
-            chapter === data.chapter && level === data.level,
-        ) || null,
-      );
     } catch (e) {
       //
-    }
-  };
-
-  const fetchMiniProjectData = async () => {
-    if (!miniprojectSeq || !username) {
-      return;
-    }
-    try {
-      const { data } = await API.get<MiniProjectResponseDto>(
-        `/app/miniProject/${miniprojectSeq}?username=${username}`,
-      );
-
-      setMiniprojectData(data);
-    } catch (e) {
-      //
-    }
-  };
-
-  const handleChangeFile = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files.length > 0) {
-      if (e.target.files[0].size > 2000 * 1024 * 1024) {
-        alert("2GB 이하의 파일만 업로드 가능합니다.");
-        return;
-      }
-      setSelectedFile(e.target.files[0]);
     }
   };
 
   const handleClickSubmit = async () => {
-    if (!data || !data.chapter || !data.kdcType || !data.level || !username) {
-      return;
-    }
-
-    if (!selectedFile) {
-      alert("파일을 선택해 주세요.");
-      return;
-    }
-
-    if (
-      !window.confirm(
-        "최종 제출 하시겠습니까? 제출 후에는 수정 및 재응시가 불가능합니다.",
-      )
-    ) {
-      return;
-    }
-
     try {
-      const { data: postSeq } = await API.post<
-        number,
-        {},
-        MiniProjectRequestDto
-      >(`/app/miniProject`, {
-        chapter: data.chapter,
-        kdcType: data.kdcType,
-        level: data.level,
-        username,
-      });
-
-      const formData = new FormData();
-      formData.append("files", selectedFile);
-      const { data: res } = await API.post<FileResponseDto>(
-        `/app/file/TYPE_MINI_PROJECT/${postSeq}`,
-        formData,
+      if (!content || !username) {
+        return;
+      }
+      const { data } = await API.post<number, {}, MiniProjectAnswerRequestDto>(
+        `/app/miniProjectAnswer/${miniProjectSeq}`,
+        {
+          username,
+          content,
+          name: "",
+        },
       );
 
-      if (!res) {
+      if (data < 0) {
         throw new Error();
       }
 
-      navigate(-1);
+      alert("작성 성공");
+      navigate(`/list?username=${username}`, { replace: true });
     } catch (e) {
-      alert("제출에 실패했습니다.");
+      alert("작성 실패");
     }
+  };
+
+  const handleClickDownloadFile = async (file: FileResponseDto) => {
+    await fileDownload(file);
   };
 
   useEffect(() => {
     fetchData();
+  }, [params]);
 
-    if (miniprojectSeq) {
-      fetchMiniProjectData();
-    }
-  }, [params, miniprojectSeq]);
-
-  if (!data || !linkData) {
+  if (!data) {
     return null;
   }
 
@@ -144,41 +91,61 @@ export default function SubmitPage() {
         </p>
         <p className="mb-[26px] font-[500]">{data.content}</p>
 
-        <div className="flex gap-[12px] mb-[40px]">
-          {linkData.data.map((value) => (
-            <a
-              href={value.href}
-              target="_blank"
-              className="h-[40px] flex items-center justify-center bg-[#033568FF] rounded-[4px] px-[20px] text-white"
-              rel="noreferrer"
-            >
-              {value.text}
-            </a>
-          ))}
-        </div>
-
-        <div className="flex items-center gap-[10px]">
-          <div className="w-[60%] flex items-center h-[54px] p-[10px] rounded-[5px] bg-[#e2f0ff] bs-[#ddd]">
-            <input type="file" onChange={handleChangeFile} />
-          </div>
-
-          <Button
-            width={100}
-            height={54}
-            backgroundColor="#033568FF"
-            textColor="#fff"
-            onClick={handleClickSubmit}
-          >
-            제출하기
-          </Button>
-        </div>
-
-        {miniprojectData?.miniProjectAnswer && (
-          <div className="pt-[40px] bt-palette-gray300 mt-[40px]">
-            <p className="text-[20px] font-[500] mb-[16px]">[첨삭내용]</p>
-            <p>{miniprojectData.miniProjectAnswer.content}</p>
+        {miniProjectData?.s3Files && (
+          <div className="pt-[40px] bt-palette-gray300 mb-[26px]">
+            <p className="text-[20px] font-[500] mb-[16px]">[파일]</p>
+            <div className="flex items-center gap-[16px] flex-wrap">
+              {miniProjectData.s3Files.map((file) => (
+                <p
+                  className="underline font-[700] cursor-pointer"
+                  onClick={() => handleClickDownloadFile(file)}
+                  key={file.seq}
+                >
+                  {file.name}
+                </p>
+              ))}
+            </div>
           </div>
         )}
+
+        <div className="pt-[40px] bt-palette-gray300 mt-[40px]">
+          <p className="text-[20px] font-[500] mb-[16px]">[첨삭내용]</p>
+          <div className="flex flex-col items-end gap-[16px]">
+            <textarea
+              className="w-full h-[400px] p-[10px]"
+              placeholder="내용 입력"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+            />
+            <div className="flex gap-[10px]">
+              <Button
+                width={120}
+                height={40}
+                padding="0"
+                fontSize={14}
+                backgroundColor="#fff"
+                textColor="#033568"
+                fontWeight="normal"
+                borderColor="#033568"
+                onClick={() => navigate(-1)}
+              >
+                뒤로가기
+              </Button>
+              <Button
+                width={120}
+                height={40}
+                padding="0"
+                fontSize={14}
+                backgroundColor="#033568"
+                textColor="#fff"
+                fontWeight="normal"
+                onClick={handleClickSubmit}
+              >
+                작성하기
+              </Button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -38,14 +38,7 @@ export interface UserUpdateRequestDto {
   /** 상세주소 */
   addressDetail?: string;
   /** 과정타입 */
-  courseTypeEnums?:
-    | "TYPE_BASIC"
-    | "TYPE_MANAGEMENT"
-    | "TYPE_DOLBOM"
-    | "TYPE_BUSINESS"
-    | "TYPE_CONSORTIUM"
-    | "TYPE_UNEMPLOYMENT"
-    | "TYPE_WORKER";
+  courseTypeEnums?: UserUpdateRequestDtoCourseTypeEnumsEnum;
   /**
    * 1 : 활성 / -1 : 비활성
    * @format int32
@@ -77,21 +70,14 @@ export interface QnaRequestDto {
   /** 내용 */
   content: string;
   /** 내용 */
-  qnaType: "CONTENT" | "PROGRESS" | "SYSTEM" | "CANCEL" | "ETC";
+  qnaType: QnaRequestDtoQnaTypeEnum;
 }
 
 export interface PostUpdateRequestDto {
   /** 게시글 분류 */
-  courseTypeEnums:
-    | "TYPE_BASIC"
-    | "TYPE_MANAGEMENT"
-    | "TYPE_DOLBOM"
-    | "TYPE_BUSINESS"
-    | "TYPE_CONSORTIUM"
-    | "TYPE_UNEMPLOYMENT"
-    | "TYPE_WORKER";
+  courseTypeEnums: PostUpdateRequestDtoCourseTypeEnumsEnum;
   /** 게시글 타입 */
-  postType: "NOTICE" | "REVIEW" | "RESOURCE_ROOM";
+  postType: PostUpdateRequestDtoPostTypeEnum;
   /** 제목 */
   subject: string;
   /** 내용 */
@@ -135,16 +121,9 @@ export interface ExamQuestionUserSaveEachRequestDto {
 
 export interface PostRequestDto {
   /** 게시글 타입 */
-  postType: "NOTICE" | "REVIEW" | "RESOURCE_ROOM";
+  postType: PostRequestDtoPostTypeEnum;
   /** 게시글 분류 */
-  courseTypeEnums:
-    | "TYPE_BASIC"
-    | "TYPE_MANAGEMENT"
-    | "TYPE_DOLBOM"
-    | "TYPE_BUSINESS"
-    | "TYPE_CONSORTIUM"
-    | "TYPE_UNEMPLOYMENT"
-    | "TYPE_WORKER";
+  courseTypeEnums: PostRequestDtoCourseTypeEnumsEnum;
   /** 제목 */
   subject: string;
   /** 내용 */
@@ -158,7 +137,7 @@ export interface OtpAuthRequestDto {
   /** 핸드폰 번호 */
   phoneNum: string;
   /** eval 타입 */
-  evalType: "TYPE_PROGRESS" | "TYPE_ENTER";
+  evalType: OtpAuthRequestDtoEvalTypeEnum;
   /** eval cd */
   evalCd: string;
 }
@@ -168,7 +147,7 @@ export interface MiniProjectRequestDto {
   chapter: number;
   /** @format int32 */
   level: number;
-  kdcType: "BIO_HEALTH_DATA" | "BIO_HEALTH_DESIGN";
+  kdcType: MiniProjectRequestDtoKdcTypeEnum;
   username: string;
 }
 
@@ -180,7 +159,7 @@ export interface MiniProjectAnswerRequestDto {
 
 export interface LikeRequestDto {
   /** 좋아요 타입 */
-  likeType: "TYPE_PRODUCT" | "TYPE_DEBATE" | "TYPE_REVIEW";
+  likeType: LikeRequestDtoLikeTypeEnum;
   /**
    * 시퀀스
    * @format int64
@@ -195,7 +174,7 @@ export interface HomeworkUserSaveRequestDto {
   /** 내용 */
   content: string;
   /** 임시저장여부(Y/N) 최종제출일 경우 N */
-  temp: "Y" | "N";
+  temp: HomeworkUserSaveRequestDtoTempEnum;
 }
 
 export interface FileResponseDto {
@@ -234,20 +213,7 @@ export interface ContactTutorRequestDto {
   /** 이름 */
   name: string;
   /** 지원분야 */
-  tutorObjectiveType:
-    | "QA"
-    | "HOSPITAL"
-    | "CERTIFICATE"
-    | "SELF_IMPROVEMENT"
-    | "LEADERSHIP_CHANGEMANAGEMENT_LABOR"
-    | "MARKETING"
-    | "INDUSTRIAL_SAFETY_EDUCATION"
-    | "SERVICE"
-    | "MANAGEMENT"
-    | "ACCOUNTING"
-    | "DISTRIBUTION"
-    | "EARLY_CHILDHOOD_EDUCATION"
-    | "ETC";
+  tutorObjectiveType: ContactTutorRequestDtoTutorObjectiveTypeEnum;
   /** 지원분야-기타입력 */
   objectiveEtc?: string;
   /** 핸드폰 번호 */
@@ -271,7 +237,7 @@ export interface ContactPartnerRequestDto {
   /** 이메일 */
   email: string;
   /** 제휴문의유형 */
-  contactPartnerType: "CONSIGNMENT" | "LMS_SOLUTION" | "CONTENTS" | "ETC";
+  contactPartnerType: ContactPartnerRequestDtoContactPartnerTypeEnum;
   /** 기업명 */
   companyName: string;
   /** 제목 */
@@ -290,23 +256,13 @@ export interface ContactEducationRequestDto {
   /** 이메일 */
   email: string;
   /** 교육문의유형 */
-  contactEducationType:
-    | "LEGAL_COMPLIANCE"
-    | "BUSINESS_OWNER"
-    | "KDT"
-    | "HRD"
-    | "ETC";
+  contactEducationType: ContactEducationRequestDtoContactEducationTypeEnum;
   /** 기업유형 */
-  companyType: "MAJOR" | "MIDSIZE" | "SMALL" | "ETC";
+  companyType: ContactEducationRequestDtoCompanyTypeEnum;
   /** 소속단체 */
-  groupType: "HI_SEOUL" | "INNOBIZ" | "METABUS" | "FP_CENTER" | "NONE";
+  groupType: ContactEducationRequestDtoGroupTypeEnum;
   /** 직원수 */
-  employeeNumberType:
-    | "TYPE_1TO50"
-    | "TYPE_51TO100"
-    | "TYPE_101TO300"
-    | "TYPE_301TO500"
-    | "TYPE_501TO1000";
+  employeeNumberType: ContactEducationRequestDtoEmployeeNumberTypeEnum;
   /**
    * 예상 교육인원
    * @format int32
@@ -315,7 +271,7 @@ export interface ContactEducationRequestDto {
   /** 소속 */
   team: string;
   /** 방문경로 */
-  visitType: "ONLINE" | "EMAIL_ADVERTISEMENT" | "SNS" | "RECOMMEND" | "ETC";
+  visitType: ContactEducationRequestDtoVisitTypeEnum;
   /** 방문경로-기타 */
   visitEtc?: string;
   /** 기업명 */
@@ -401,7 +357,7 @@ export interface SignUpUserRequestDto {
   /** 유선전화 */
   telephone?: string;
   /** 유저 등급(어드민 전용) */
-  role?: "ROLE_USER" | "ROLE_ADMIN" | "ROLE_TUTOR";
+  role?: SignUpUserRequestDtoRoleEnum;
   /** 우편번호 */
   postCode?: string;
   /** 주소 */
@@ -450,14 +406,7 @@ export interface UserDetailResponseDto {
   /** 부서 */
   team?: string;
   /** 과정타입 */
-  courseTypeEnums?:
-    | "TYPE_BASIC"
-    | "TYPE_MANAGEMENT"
-    | "TYPE_DOLBOM"
-    | "TYPE_BUSINESS"
-    | "TYPE_CONSORTIUM"
-    | "TYPE_UNEMPLOYMENT"
-    | "TYPE_WORKER";
+  courseTypeEnums?: UserDetailResponseDtoCourseTypeEnumsEnum;
   /** 주소 */
   address?: string;
   /** 상세주소 */
@@ -472,12 +421,12 @@ export interface UserDetailResponseDto {
    * @format int32
    */
   status?: number;
-  erole?: "ROLE_USER" | "ROLE_ADMIN" | "ROLE_TUTOR";
+  erole?: UserDetailResponseDtoEroleEnum;
 }
 
 export interface SignInRequestDto {
   /** 로그인 타입 */
-  loginType?: "TYPE_EMAIL" | "TYPE_KAKAO";
+  loginType?: SignInRequestDtoLoginTypeEnum;
   /** 유저 아이디 */
   username?: string;
   /** 유저 비밀번호 */
@@ -499,7 +448,7 @@ export interface SignInResponseDto {
   /** 유저 아이디 */
   username?: string;
   /** 유저 권한 */
-  erole?: "ROLE_USER" | "ROLE_ADMIN" | "ROLE_TUTOR";
+  erole?: SignInResponseDtoEroleEnum;
   /**
    * AT expired time
    * @format int64
@@ -558,20 +507,13 @@ export interface UserFindResponseDto {
   /** 사업명 */
   businessName?: string;
   /** 과정타입 */
-  courseTypeEnums?:
-    | "TYPE_BASIC"
-    | "TYPE_MANAGEMENT"
-    | "TYPE_DOLBOM"
-    | "TYPE_BUSINESS"
-    | "TYPE_CONSORTIUM"
-    | "TYPE_UNEMPLOYMENT"
-    | "TYPE_WORKER";
+  courseTypeEnums?: UserFindResponseDtoCourseTypeEnumsEnum;
   /**
    * 상태
    * @format int32
    */
   status?: number;
-  erole?: "ROLE_USER" | "ROLE_ADMIN" | "ROLE_TUTOR";
+  erole?: UserFindResponseDtoEroleEnum;
 }
 
 /** Terms Response Dto */
@@ -584,11 +526,7 @@ export interface TermResponseDto {
   /** 내용 */
   content: string;
   /** 약관 타입 */
-  termTypeEnums:
-    | "TYPE_USE"
-    | "TYPE_PRIVACY_POLICY"
-    | "TYPE_PROVISION_PERSONAL_DATA"
-    | "TYPE_MARKETING";
+  termTypeEnums: TermResponseDtoTermTypeEnumsEnum;
   /**
    * 상태
    * @format int32
@@ -646,7 +584,7 @@ export interface ContentDetailResponseDto {
   /** 콘텐츠 이름 */
   contentName: string;
   /** 콘텐츠 타입 */
-  contentTypeEnums: "TYPE_HTML" | "TYPE_MP4";
+  contentTypeEnums: ContentDetailResponseDtoContentTypeEnumsEnum;
   /** 콘텐츠 설명 */
   description: string;
   /** 콘텐츠 차시 리스트 */
@@ -788,18 +726,11 @@ export interface CourseResponseDto {
   /** NCS 코드 */
   ncsCode: string;
   /** 과정 타입 */
-  courseType:
-    | "TYPE_BASIC"
-    | "TYPE_MANAGEMENT"
-    | "TYPE_DOLBOM"
-    | "TYPE_BUSINESS"
-    | "TYPE_CONSORTIUM"
-    | "TYPE_UNEMPLOYMENT"
-    | "TYPE_WORKER";
+  courseType: CourseResponseDtoCourseTypeEnum;
   /** 과정 소개 */
   description: string;
   /** 온라인/오프라인 타입 */
-  courseOnlineOffline: "ONLINE" | "OFFLINE";
+  courseOnlineOffline: CourseResponseDtoCourseOnlineOfflineEnum;
 }
 
 /** Course User Response Dto */
@@ -844,7 +775,7 @@ export interface CourseUserDetailResponseDto {
    */
   studyEndDtime: string;
   /** 수강 신청 완료 여부 WAIT/COMPLETE */
-  courseRequestStatus?: "WAIT" | "COMPLETE";
+  courseRequestStatus?: CourseUserDetailResponseDtoCourseRequestStatusEnum;
 }
 
 export interface PageResponseDtoReviewResponseDto {
@@ -940,7 +871,7 @@ export interface ExamQuestionUserResponseDto {
   /** 문제설명 */
   questionDescription?: string;
   /** 문제유형 */
-  questionType?: "CHOICE" | "SUBJECTIVE";
+  questionType?: ExamQuestionUserResponseDtoQuestionTypeEnum;
   /** 문항 */
   choice?: ExamQuestionChoiceResponseDto[];
   /** 문항 순서 */
@@ -1021,7 +952,7 @@ export interface QnaResponseDto {
   /** 제목 */
   subject: string;
   /** 구분 */
-  qnaType: "CONTENT" | "PROGRESS" | "SYSTEM" | "CANCEL" | "ETC";
+  qnaType: QnaResponseDtoQnaTypeEnum;
   /** 비밀글 설정 */
   secretYn: boolean;
   /** 내용 */
@@ -1066,7 +997,7 @@ export interface Category {
   sort?: number;
   subject?: string;
   description?: string;
-  itemType?: "PRODUCT";
+  itemType?: CategoryItemTypeEnum;
   categoryItemList?: CategoryItemList[];
   parentCategory?: Category;
   subCategory?: Category[];
@@ -1091,7 +1022,7 @@ export interface CategoryResponseDto {
   /** 카테고리 세부 설명 */
   description: string;
   /** 카태고리 항목 타입 */
-  itemType: "PRODUCT";
+  itemType: CategoryResponseDtoItemTypeEnum;
   /** 서브 카테고리 리스트 */
   subCategorieDtoList?: CategoryResponseDto[];
   /** 상품 시퀀스 리스트 */
@@ -1102,14 +1033,7 @@ export interface CategoryResponseDto {
 export interface CertificateItem {
   /** @format int64 */
   seq?: number;
-  certificateItemType?:
-    | "CERTIFICATE_MARK"
-    | "NAME"
-    | "COURSE_NAME"
-    | "BIRTHDAY"
-    | "COURSE_PERIOD"
-    | "NCS"
-    | "CREATED_DATE";
+  certificateItemType?: CertificateItemCertificateItemTypeEnum;
   /** @format int32 */
   top?: number;
   /** @format int32 */
@@ -1131,7 +1055,7 @@ export interface CertificateTemplate {
   name?: string;
   content?: string;
   certificateItemList?: CertificateItem[];
-  a4Type?: "VERTICAL" | "HORIZONTAL";
+  a4Type?: CertificateTemplateA4TypeEnum;
   image?: File[];
 }
 
@@ -1177,7 +1101,7 @@ export interface Content {
   seq?: number;
   contentName?: string;
   description?: string;
-  contentTypeEnums?: "TYPE_HTML" | "TYPE_MP4";
+  contentTypeEnums?: ContentContentTypeEnumsEnum;
   contentChasiList?: ContentChasi[];
   examList?: Exam[];
   homework?: Homework[];
@@ -1243,14 +1167,7 @@ export interface Course {
   contentTutor?: CourseTutorList[];
   /** @format int32 */
   studyDate?: number;
-  courseType?:
-    | "TYPE_BASIC"
-    | "TYPE_MANAGEMENT"
-    | "TYPE_DOLBOM"
-    | "TYPE_BUSINESS"
-    | "TYPE_CONSORTIUM"
-    | "TYPE_UNEMPLOYMENT"
-    | "TYPE_WORKER";
+  courseType?: CourseCourseTypeEnum;
   description?: string;
   purpose?: string;
   target?: string;
@@ -1263,7 +1180,7 @@ export interface Course {
   certificateTemplate?: CertificateTemplate;
   mainImg?: File[];
   courseClass?: CourseClass[];
-  courseOnlineOffline?: "ONLINE" | "OFFLINE";
+  courseOnlineOffline?: CourseCourseOnlineOfflineEnum;
   businessName?: string;
   jobType?: string;
 }
@@ -1302,12 +1219,12 @@ export interface CourseModule {
   status?: number;
   /** @format int64 */
   seq?: number;
-  type?: "EXAM" | "HOMEWORK" | "DEBATE";
+  type?: CourseModuleTypeEnum;
   /** @format int64 */
   limitScore?: number;
   /** @format int64 */
   limitRatio?: number;
-  limitRatioType?: "PERCENT" | "CHASI";
+  limitRatioType?: CourseModuleLimitRatioTypeEnum;
   course?: Course;
   /** @format int64 */
   targetSeq?: number;
@@ -1349,7 +1266,7 @@ export interface CourseProgressLog {
   courseProgress?: CourseProgress;
   /** @format int64 */
   studyTime?: number;
-  progressStatus?: "START" | "END";
+  progressStatus?: CourseProgressLogProgressStatusEnum;
   sessionId?: string;
   accessIp?: string;
 }
@@ -1357,7 +1274,7 @@ export interface CourseProgressLog {
 export interface CourseTutorList {
   /** @format int64 */
   seq?: number;
-  courseTutorType?: "TUTOR" | "CONTENT_TUTOR";
+  courseTutorType?: CourseTutorListCourseTutorTypeEnum;
   /** @format int32 */
   sort?: number;
   name?: string;
@@ -1396,7 +1313,7 @@ export interface CourseUser {
   confirmation?: Confirmation;
   courseProgressList?: CourseProgress[];
   files?: File[];
-  courseRequestStatus?: "WAIT" | "COMPLETE";
+  courseRequestStatus?: CourseUserCourseRequestStatusEnum;
   file?: File[];
 }
 
@@ -1446,12 +1363,12 @@ export interface Exam {
   description?: string;
   /** @format int32 */
   time?: number;
-  mix?: "Y" | "N";
-  autoMark?: "Y" | "N";
+  mix?: ExamMixEnum;
+  autoMark?: ExamAutoMarkEnum;
   examScoreList?: ExamDistributeScore[];
   examUserList?: ExamUser[];
   content?: Content;
-  examType?: "MID_EXAM" | "FINAL_EXAM";
+  examType?: ExamExamTypeEnum;
   examQuestionList?: ExamQuestionList[];
   /** @format date */
   submitDueDt?: string;
@@ -1484,7 +1401,7 @@ export interface ExamDistributeScore {
   status?: number;
   /** @format int64 */
   seq?: number;
-  level?: "HIGH" | "MEDIUM" | "LOW";
+  level?: ExamDistributeScoreLevelEnum;
   /** @format int32 */
   choiceCnt?: number;
   /** @format int32 */
@@ -1509,9 +1426,9 @@ export interface ExamQuestion {
   title?: string;
   answerList?: string[];
   questionDescription?: string;
-  questionType?: "CHOICE" | "SUBJECTIVE";
+  questionType?: ExamQuestionQuestionTypeEnum;
   answerDescription?: string;
-  level?: "HIGH" | "MEDIUM" | "LOW";
+  level?: ExamQuestionLevelEnum;
   questionChoiceList?: ExamQuestionChoice[];
   examQuestionList?: ExamQuestionList[];
   examAnswerList?: ExamAnswer[];
@@ -1553,8 +1470,8 @@ export interface ExamUser {
   user?: User;
   /** @format float */
   score?: number;
-  submit?: "Y" | "N";
-  mark?: "Y" | "N";
+  submit?: ExamUserSubmitEnum;
+  mark?: ExamUserMarkEnum;
 }
 
 export interface File {
@@ -1613,7 +1530,7 @@ export interface HomeworkUser {
   content?: string;
   fileList?: File[];
   homework?: Homework;
-  temp?: "Y" | "N";
+  temp?: HomeworkUserTempEnum;
 }
 
 export interface LectureData {
@@ -1657,15 +1574,8 @@ export interface Post {
   /** @format int64 */
   seq?: number;
   user?: User;
-  courseTypeEnums?:
-    | "TYPE_BASIC"
-    | "TYPE_MANAGEMENT"
-    | "TYPE_DOLBOM"
-    | "TYPE_BUSINESS"
-    | "TYPE_CONSORTIUM"
-    | "TYPE_UNEMPLOYMENT"
-    | "TYPE_WORKER";
-  postType?: "NOTICE" | "REVIEW" | "RESOURCE_ROOM";
+  courseTypeEnums?: PostCourseTypeEnumsEnum;
+  postType?: PostPostTypeEnum;
   subject?: string;
   content?: string;
   publicYn?: boolean;
@@ -1825,7 +1735,7 @@ export interface Qna {
   /** @format int64 */
   seq?: number;
   user?: User;
-  qnaType?: "CONTENT" | "PROGRESS" | "SYSTEM" | "CANCEL" | "ETC";
+  qnaType?: QnaQnaTypeEnum;
   subject?: string;
   secretYn?: boolean;
   qnaAnswer?: QnaAnswer;
@@ -1873,22 +1783,15 @@ export interface User {
   phone?: string;
   nickname?: string;
   imageUrl?: string;
-  eRole?: "ROLE_USER" | "ROLE_ADMIN" | "ROLE_TUTOR";
+  eRole?: UserERoleEnum;
   emailYn?: boolean;
   phoneYn?: boolean;
   /** @format date-time */
   lastPwUpdDtime?: string;
   /** @format date-time */
   withdrawalExpect?: string;
-  courseTypeEnums?:
-    | "TYPE_BASIC"
-    | "TYPE_MANAGEMENT"
-    | "TYPE_DOLBOM"
-    | "TYPE_BUSINESS"
-    | "TYPE_CONSORTIUM"
-    | "TYPE_UNEMPLOYMENT"
-    | "TYPE_WORKER";
-  regCategory?: "TYPE_EMAIL" | "TYPE_KAKAO";
+  courseTypeEnums?: UserCourseTypeEnumsEnum;
+  regCategory?: UserRegCategoryEnum;
   post?: Post[];
   qna?: Qna[];
   qnaAnswer?: QnaAnswer[];
@@ -1904,7 +1807,7 @@ export interface User {
   addressDetail?: string;
   businessName?: string;
   team?: string;
-  erole?: "ROLE_USER" | "ROLE_ADMIN" | "ROLE_TUTOR";
+  erole?: UserEroleEnum;
 }
 
 export interface PageResponseDtoPostResponseDto {
@@ -1925,16 +1828,9 @@ export interface PostResponseDto {
    */
   status: number;
   /** 게시글 분류 */
-  courseTypeEnums:
-    | "TYPE_BASIC"
-    | "TYPE_MANAGEMENT"
-    | "TYPE_DOLBOM"
-    | "TYPE_BUSINESS"
-    | "TYPE_CONSORTIUM"
-    | "TYPE_UNEMPLOYMENT"
-    | "TYPE_WORKER";
+  courseTypeEnums: PostResponseDtoCourseTypeEnumsEnum;
   /** 게시글 타입 */
-  postType: "NOTICE" | "REVIEW" | "RESOURCE_ROOM";
+  postType: PostResponseDtoPostTypeEnum;
   /** 제목 */
   subject: string;
   /** 내용 */
@@ -1977,21 +1873,6 @@ export interface MiniProjectAnswerResponseDto {
   name?: string;
 }
 
-export interface MiniProjectResponseDto {
-  /** @format int64 */
-  seq: number;
-  /** @format int32 */
-  chapter: number;
-  /** @format int32 */
-  level: number;
-  kdcType: "BIO_HEALTH_DATA" | "BIO_HEALTH_DESIGN";
-  username: string;
-  isComplete: boolean;
-  /** s3 파일 */
-  s3Files?: FileResponseDto[];
-  miniProjectAnswer?: MiniProjectAnswerResponseDto;
-}
-
 export interface MiniProjectQuestionResponseDto {
   /** @format int64 */
   seq?: number;
@@ -2001,7 +1882,35 @@ export interface MiniProjectQuestionResponseDto {
   level?: number;
   subject?: string;
   content?: string;
-  kdcType?: "BIO_HEALTH_DATA" | "BIO_HEALTH_DESIGN";
+  kdcType?: MiniProjectQuestionResponseDtoKdcTypeEnum;
+}
+
+export interface MiniProjectResponseDto {
+  /** @format int64 */
+  seq: number;
+  /** @format int32 */
+  chapter: number;
+  /** @format int32 */
+  level: number;
+  kdcType: MiniProjectResponseDtoKdcTypeEnum;
+  username: string;
+  isComplete: boolean;
+  /** s3 파일 */
+  s3Files?: FileResponseDto[];
+  miniProjectAnswer?: MiniProjectAnswerResponseDto;
+  miniProjectQuestion?: MiniProjectQuestionResponseDto;
+}
+
+export interface PageResponseDtoMiniProjectResponseDto {
+  metadata?: Metadata;
+  data?: MiniProjectResponseDto[];
+}
+
+export interface MiniProjectTutorDto {
+  /** @format int64 */
+  id?: number;
+  kdcType?: MiniProjectTutorDtoKdcTypeEnum;
+  username?: string;
 }
 
 export interface MainDisplayResponseDto {
@@ -2045,7 +1954,7 @@ export interface ProductLikeResponseDto {
    */
   seq: number;
   /** 좋아요 타입 */
-  likeType: "TYPE_PRODUCT" | "TYPE_DEBATE" | "TYPE_REVIEW";
+  likeType: ProductLikeResponseDtoLikeTypeEnum;
   productResponseDto?: ProductResponseDto;
 }
 
@@ -2090,7 +1999,7 @@ export interface HomeworkUserResponseDto {
    */
   seq: number;
   /** 최소 진도율 타입 (차시 or 전체 최소진도율 %) */
-  limitRatioType?: "PERCENT" | "CHASI";
+  limitRatioType?: HomeworkUserResponseDtoLimitRatioTypeEnum;
   /**
    * 최소 이수 기준
    * @format int64
@@ -2114,7 +2023,7 @@ export interface HomeworkUserResponseDto {
    */
   score: number;
   /** 상태 */
-  status: "Y" | "N";
+  status: HomeworkUserResponseDtoStatusEnum;
 }
 
 export interface PageResponseDtoHomeworkUserResponseDto {
@@ -2139,7 +2048,7 @@ export interface HomeworkUserDetailResponseDto {
    */
   limitScore?: number;
   /** 최소 진도율 타입 (차시 or 전체 최소진도율 %) */
-  limitRatioType?: "PERCENT" | "CHASI";
+  limitRatioType?: HomeworkUserDetailResponseDtoLimitRatioTypeEnum;
   /** 과제명 */
   title: string;
   /**
@@ -2148,7 +2057,7 @@ export interface HomeworkUserDetailResponseDto {
    */
   submitDue?: string;
   /** 상태 */
-  status: "Y" | "N";
+  status: HomeworkUserDetailResponseDtoStatusEnum;
   /** 과제 설명 - 필독사항 */
   description: string;
   /** 평가 주제 - 평가문항 */
@@ -2227,7 +2136,7 @@ export interface ExamUserListResponseDto {
    */
   score?: number;
   /** 응시 여부 */
-  status?: "Y" | "N";
+  status?: ExamUserListResponseDtoStatusEnum;
 }
 
 export interface PageResponseDtoExamUserListResponseDto {
@@ -2250,7 +2159,7 @@ export interface ExamUserDetailResponseDto {
    */
   score?: number;
   /** 응시 여부 */
-  status?: "Y" | "N";
+  status?: ExamUserDetailResponseDtoStatusEnum;
   /**
    * 시험 시간
    * @format int32
@@ -2283,7 +2192,7 @@ export interface DebateUserResponseDto {
    */
   userCnt: number;
   /** 진행 가능 여부(Y/N) */
-  progressStatus?: "Y" | "N";
+  progressStatus?: DebateUserResponseDtoProgressStatusEnum;
 }
 
 export interface PageResponseDtoDebateUserResponseDto {
@@ -2360,11 +2269,11 @@ export interface PageDebateCommentResponseDto {
   /** @format int32 */
   number?: number;
   sort?: SortObject;
+  first?: boolean;
+  last?: boolean;
   /** @format int32 */
   numberOfElements?: number;
   pageable?: PageableObject;
-  first?: boolean;
-  last?: boolean;
   empty?: boolean;
 }
 
@@ -2443,9 +2352,9 @@ export interface CourseUserResponseDto {
    */
   studyEndDtime: string;
   /** 수강상태 */
-  courseUserStatus?: "TYPE_IN_PROGRESS" | "TYPE_DONE" | "TYPE_WAITING";
+  courseUserStatus?: CourseUserResponseDtoCourseUserStatusEnum;
   /** 수강 신청 완료 여부 WAIT/COMPLETE */
-  courseRequestStatus?: "WAIT" | "COMPLETE";
+  courseRequestStatus?: CourseUserResponseDtoCourseRequestStatusEnum;
 }
 
 export interface PageResponseDtoCourseListenResponseDto {
@@ -2470,14 +2379,7 @@ export interface CourseDetailResponseDto {
   /** NCS 코드 */
   ncsCode: string;
   /** 과정 타입 */
-  courseType:
-    | "TYPE_BASIC"
-    | "TYPE_MANAGEMENT"
-    | "TYPE_DOLBOM"
-    | "TYPE_BUSINESS"
-    | "TYPE_CONSORTIUM"
-    | "TYPE_UNEMPLOYMENT"
-    | "TYPE_WORKER";
+  courseType: CourseDetailResponseDtoCourseTypeEnum;
   /** 과정 소개 */
   description: string;
   /** 교강사 */
@@ -2507,7 +2409,7 @@ export interface CourseDetailResponseDto {
    */
   certificateTemplateSeq: number;
   /** 온라인/오프라인 타입 */
-  courseOnlineOffline: "ONLINE" | "OFFLINE";
+  courseOnlineOffline: CourseDetailResponseDtoCourseOnlineOfflineEnum;
   /** 사업명 */
   businessName?: string;
   /** 직무분야 */
@@ -2532,7 +2434,7 @@ export interface CourseTutorResponseDto {
    */
   userSeq: number;
   /** 튜터 타입 */
-  courseTutorType: "TUTOR" | "CONTENT_TUTOR";
+  courseTutorType: CourseTutorResponseDtoCourseTutorTypeEnum;
   /**
    * 순서
    * @format int32
@@ -2613,14 +2515,14 @@ export interface UserAuthStatusResponseDto {
   /** 토스 트랜잭션 아이디 */
   txId: string;
   /** 인증 상태의 종류 */
-  status: "REQUESTED" | "IN_PROGRESS" | "COMPLETED" | "EXPIRED";
+  status: UserAuthStatusResponseDtoStatusEnum;
 }
 
 export interface UserAuthResultResponseDto {
   /** 토스 트랜잭션 아이디 */
   txId: string;
   /** 인증 상태의 종류 */
-  status: "REQUESTED" | "IN_PROGRESS" | "COMPLETED" | "EXPIRED";
+  status: UserAuthResultResponseDtoStatusEnum;
   /** 이름 */
   name?: string;
   /** 생년월일 */
@@ -2650,12 +2552,575 @@ export interface AuthLoginResponseDto {
    * @format int32
    */
   status: number;
-  erole?: "ROLE_USER" | "ROLE_ADMIN" | "ROLE_TUTOR";
+  erole?: AuthLoginResponseDtoEroleEnum;
 }
 
 export interface UserNameDuplicateCheckResponseDto {
   /** 사용 가능 여부(사용 : true, 불가능 : false) */
   result?: boolean;
+}
+
+/** 과정타입 */
+export enum UserUpdateRequestDtoCourseTypeEnumsEnum {
+  TYPE_BASIC = "TYPE_BASIC",
+  TYPE_MANAGEMENT = "TYPE_MANAGEMENT",
+  TYPE_DOLBOM = "TYPE_DOLBOM",
+  TYPE_BUSINESS = "TYPE_BUSINESS",
+  TYPE_CONSORTIUM = "TYPE_CONSORTIUM",
+  TYPE_UNEMPLOYMENT = "TYPE_UNEMPLOYMENT",
+  TYPE_WORKER = "TYPE_WORKER",
+}
+
+/** 내용 */
+export enum QnaRequestDtoQnaTypeEnum {
+  CONTENT = "CONTENT",
+  PROGRESS = "PROGRESS",
+  SYSTEM = "SYSTEM",
+  CANCEL = "CANCEL",
+  ETC = "ETC",
+}
+
+/** 게시글 분류 */
+export enum PostUpdateRequestDtoCourseTypeEnumsEnum {
+  TYPE_BASIC = "TYPE_BASIC",
+  TYPE_MANAGEMENT = "TYPE_MANAGEMENT",
+  TYPE_DOLBOM = "TYPE_DOLBOM",
+  TYPE_BUSINESS = "TYPE_BUSINESS",
+  TYPE_CONSORTIUM = "TYPE_CONSORTIUM",
+  TYPE_UNEMPLOYMENT = "TYPE_UNEMPLOYMENT",
+  TYPE_WORKER = "TYPE_WORKER",
+}
+
+/** 게시글 타입 */
+export enum PostUpdateRequestDtoPostTypeEnum {
+  NOTICE = "NOTICE",
+  REVIEW = "REVIEW",
+  RESOURCE_ROOM = "RESOURCE_ROOM",
+}
+
+/** 게시글 타입 */
+export enum PostRequestDtoPostTypeEnum {
+  NOTICE = "NOTICE",
+  REVIEW = "REVIEW",
+  RESOURCE_ROOM = "RESOURCE_ROOM",
+}
+
+/** 게시글 분류 */
+export enum PostRequestDtoCourseTypeEnumsEnum {
+  TYPE_BASIC = "TYPE_BASIC",
+  TYPE_MANAGEMENT = "TYPE_MANAGEMENT",
+  TYPE_DOLBOM = "TYPE_DOLBOM",
+  TYPE_BUSINESS = "TYPE_BUSINESS",
+  TYPE_CONSORTIUM = "TYPE_CONSORTIUM",
+  TYPE_UNEMPLOYMENT = "TYPE_UNEMPLOYMENT",
+  TYPE_WORKER = "TYPE_WORKER",
+}
+
+/** eval 타입 */
+export enum OtpAuthRequestDtoEvalTypeEnum {
+  TYPE_PROGRESS = "TYPE_PROGRESS",
+  TYPE_ENTER = "TYPE_ENTER",
+}
+
+export enum MiniProjectRequestDtoKdcTypeEnum {
+  BIO_HEALTH_DATA = "BIO_HEALTH_DATA",
+  BIO_HEALTH_DESIGN = "BIO_HEALTH_DESIGN",
+}
+
+/** 좋아요 타입 */
+export enum LikeRequestDtoLikeTypeEnum {
+  TYPE_PRODUCT = "TYPE_PRODUCT",
+  TYPE_DEBATE = "TYPE_DEBATE",
+  TYPE_REVIEW = "TYPE_REVIEW",
+}
+
+/** 임시저장여부(Y/N) 최종제출일 경우 N */
+export enum HomeworkUserSaveRequestDtoTempEnum {
+  Y = "Y",
+  N = "N",
+}
+
+/** 지원분야 */
+export enum ContactTutorRequestDtoTutorObjectiveTypeEnum {
+  QA = "QA",
+  HOSPITAL = "HOSPITAL",
+  CERTIFICATE = "CERTIFICATE",
+  SELF_IMPROVEMENT = "SELF_IMPROVEMENT",
+  LEADERSHIP_CHANGEMANAGEMENT_LABOR = "LEADERSHIP_CHANGEMANAGEMENT_LABOR",
+  MARKETING = "MARKETING",
+  INDUSTRIAL_SAFETY_EDUCATION = "INDUSTRIAL_SAFETY_EDUCATION",
+  SERVICE = "SERVICE",
+  MANAGEMENT = "MANAGEMENT",
+  ACCOUNTING = "ACCOUNTING",
+  DISTRIBUTION = "DISTRIBUTION",
+  EARLY_CHILDHOOD_EDUCATION = "EARLY_CHILDHOOD_EDUCATION",
+  ETC = "ETC",
+}
+
+/** 제휴문의유형 */
+export enum ContactPartnerRequestDtoContactPartnerTypeEnum {
+  CONSIGNMENT = "CONSIGNMENT",
+  LMS_SOLUTION = "LMS_SOLUTION",
+  CONTENTS = "CONTENTS",
+  ETC = "ETC",
+}
+
+/** 교육문의유형 */
+export enum ContactEducationRequestDtoContactEducationTypeEnum {
+  LEGAL_COMPLIANCE = "LEGAL_COMPLIANCE",
+  BUSINESS_OWNER = "BUSINESS_OWNER",
+  KDT = "KDT",
+  HRD = "HRD",
+  ETC = "ETC",
+}
+
+/** 기업유형 */
+export enum ContactEducationRequestDtoCompanyTypeEnum {
+  MAJOR = "MAJOR",
+  MIDSIZE = "MIDSIZE",
+  SMALL = "SMALL",
+  ETC = "ETC",
+}
+
+/** 소속단체 */
+export enum ContactEducationRequestDtoGroupTypeEnum {
+  HI_SEOUL = "HI_SEOUL",
+  INNOBIZ = "INNOBIZ",
+  METABUS = "METABUS",
+  FP_CENTER = "FP_CENTER",
+  NONE = "NONE",
+}
+
+/** 직원수 */
+export enum ContactEducationRequestDtoEmployeeNumberTypeEnum {
+  TYPE1TO50 = "TYPE_1TO50",
+  TYPE51TO100 = "TYPE_51TO100",
+  TYPE101TO300 = "TYPE_101TO300",
+  TYPE301TO500 = "TYPE_301TO500",
+  TYPE501TO1000 = "TYPE_501TO1000",
+}
+
+/** 방문경로 */
+export enum ContactEducationRequestDtoVisitTypeEnum {
+  ONLINE = "ONLINE",
+  EMAIL_ADVERTISEMENT = "EMAIL_ADVERTISEMENT",
+  SNS = "SNS",
+  RECOMMEND = "RECOMMEND",
+  ETC = "ETC",
+}
+
+/** 유저 등급(어드민 전용) */
+export enum SignUpUserRequestDtoRoleEnum {
+  ROLE_USER = "ROLE_USER",
+  ROLE_ADMIN = "ROLE_ADMIN",
+  ROLE_TUTOR = "ROLE_TUTOR",
+}
+
+/** 과정타입 */
+export enum UserDetailResponseDtoCourseTypeEnumsEnum {
+  TYPE_BASIC = "TYPE_BASIC",
+  TYPE_MANAGEMENT = "TYPE_MANAGEMENT",
+  TYPE_DOLBOM = "TYPE_DOLBOM",
+  TYPE_BUSINESS = "TYPE_BUSINESS",
+  TYPE_CONSORTIUM = "TYPE_CONSORTIUM",
+  TYPE_UNEMPLOYMENT = "TYPE_UNEMPLOYMENT",
+  TYPE_WORKER = "TYPE_WORKER",
+}
+
+export enum UserDetailResponseDtoEroleEnum {
+  ROLE_USER = "ROLE_USER",
+  ROLE_ADMIN = "ROLE_ADMIN",
+  ROLE_TUTOR = "ROLE_TUTOR",
+}
+
+/** 로그인 타입 */
+export enum SignInRequestDtoLoginTypeEnum {
+  TYPE_EMAIL = "TYPE_EMAIL",
+  TYPE_KAKAO = "TYPE_KAKAO",
+}
+
+/** 유저 권한 */
+export enum SignInResponseDtoEroleEnum {
+  ROLE_USER = "ROLE_USER",
+  ROLE_ADMIN = "ROLE_ADMIN",
+  ROLE_TUTOR = "ROLE_TUTOR",
+}
+
+/** 과정타입 */
+export enum UserFindResponseDtoCourseTypeEnumsEnum {
+  TYPE_BASIC = "TYPE_BASIC",
+  TYPE_MANAGEMENT = "TYPE_MANAGEMENT",
+  TYPE_DOLBOM = "TYPE_DOLBOM",
+  TYPE_BUSINESS = "TYPE_BUSINESS",
+  TYPE_CONSORTIUM = "TYPE_CONSORTIUM",
+  TYPE_UNEMPLOYMENT = "TYPE_UNEMPLOYMENT",
+  TYPE_WORKER = "TYPE_WORKER",
+}
+
+export enum UserFindResponseDtoEroleEnum {
+  ROLE_USER = "ROLE_USER",
+  ROLE_ADMIN = "ROLE_ADMIN",
+  ROLE_TUTOR = "ROLE_TUTOR",
+}
+
+/** 약관 타입 */
+export enum TermResponseDtoTermTypeEnumsEnum {
+  TYPE_USE = "TYPE_USE",
+  TYPE_PRIVACY_POLICY = "TYPE_PRIVACY_POLICY",
+  TYPE_PROVISION_PERSONAL_DATA = "TYPE_PROVISION_PERSONAL_DATA",
+  TYPE_MARKETING = "TYPE_MARKETING",
+}
+
+/** 콘텐츠 타입 */
+export enum ContentDetailResponseDtoContentTypeEnumsEnum {
+  TYPE_HTML = "TYPE_HTML",
+  TYPEMP4 = "TYPE_MP4",
+}
+
+/** 과정 타입 */
+export enum CourseResponseDtoCourseTypeEnum {
+  TYPE_BASIC = "TYPE_BASIC",
+  TYPE_MANAGEMENT = "TYPE_MANAGEMENT",
+  TYPE_DOLBOM = "TYPE_DOLBOM",
+  TYPE_BUSINESS = "TYPE_BUSINESS",
+  TYPE_CONSORTIUM = "TYPE_CONSORTIUM",
+  TYPE_UNEMPLOYMENT = "TYPE_UNEMPLOYMENT",
+  TYPE_WORKER = "TYPE_WORKER",
+}
+
+/** 온라인/오프라인 타입 */
+export enum CourseResponseDtoCourseOnlineOfflineEnum {
+  ONLINE = "ONLINE",
+  OFFLINE = "OFFLINE",
+}
+
+/** 수강 신청 완료 여부 WAIT/COMPLETE */
+export enum CourseUserDetailResponseDtoCourseRequestStatusEnum {
+  WAIT = "WAIT",
+  COMPLETE = "COMPLETE",
+}
+
+/** 문제유형 */
+export enum ExamQuestionUserResponseDtoQuestionTypeEnum {
+  CHOICE = "CHOICE",
+  SUBJECTIVE = "SUBJECTIVE",
+}
+
+/** 구분 */
+export enum QnaResponseDtoQnaTypeEnum {
+  CONTENT = "CONTENT",
+  PROGRESS = "PROGRESS",
+  SYSTEM = "SYSTEM",
+  CANCEL = "CANCEL",
+  ETC = "ETC",
+}
+
+export enum CategoryItemTypeEnum {
+  PRODUCT = "PRODUCT",
+}
+
+/** 카태고리 항목 타입 */
+export enum CategoryResponseDtoItemTypeEnum {
+  PRODUCT = "PRODUCT",
+}
+
+export enum CertificateItemCertificateItemTypeEnum {
+  CERTIFICATE_MARK = "CERTIFICATE_MARK",
+  NAME = "NAME",
+  COURSE_NAME = "COURSE_NAME",
+  BIRTHDAY = "BIRTHDAY",
+  COURSE_PERIOD = "COURSE_PERIOD",
+  NCS = "NCS",
+  CREATED_DATE = "CREATED_DATE",
+}
+
+export enum CertificateTemplateA4TypeEnum {
+  VERTICAL = "VERTICAL",
+  HORIZONTAL = "HORIZONTAL",
+}
+
+export enum ContentContentTypeEnumsEnum {
+  TYPE_HTML = "TYPE_HTML",
+  TYPEMP4 = "TYPE_MP4",
+}
+
+export enum CourseCourseTypeEnum {
+  TYPE_BASIC = "TYPE_BASIC",
+  TYPE_MANAGEMENT = "TYPE_MANAGEMENT",
+  TYPE_DOLBOM = "TYPE_DOLBOM",
+  TYPE_BUSINESS = "TYPE_BUSINESS",
+  TYPE_CONSORTIUM = "TYPE_CONSORTIUM",
+  TYPE_UNEMPLOYMENT = "TYPE_UNEMPLOYMENT",
+  TYPE_WORKER = "TYPE_WORKER",
+}
+
+export enum CourseCourseOnlineOfflineEnum {
+  ONLINE = "ONLINE",
+  OFFLINE = "OFFLINE",
+}
+
+export enum CourseModuleTypeEnum {
+  EXAM = "EXAM",
+  HOMEWORK = "HOMEWORK",
+  DEBATE = "DEBATE",
+}
+
+export enum CourseModuleLimitRatioTypeEnum {
+  PERCENT = "PERCENT",
+  CHASI = "CHASI",
+}
+
+export enum CourseProgressLogProgressStatusEnum {
+  START = "START",
+  END = "END",
+}
+
+export enum CourseTutorListCourseTutorTypeEnum {
+  TUTOR = "TUTOR",
+  CONTENT_TUTOR = "CONTENT_TUTOR",
+}
+
+export enum CourseUserCourseRequestStatusEnum {
+  WAIT = "WAIT",
+  COMPLETE = "COMPLETE",
+}
+
+export enum ExamMixEnum {
+  Y = "Y",
+  N = "N",
+}
+
+export enum ExamAutoMarkEnum {
+  Y = "Y",
+  N = "N",
+}
+
+export enum ExamExamTypeEnum {
+  MID_EXAM = "MID_EXAM",
+  FINAL_EXAM = "FINAL_EXAM",
+}
+
+export enum ExamDistributeScoreLevelEnum {
+  HIGH = "HIGH",
+  MEDIUM = "MEDIUM",
+  LOW = "LOW",
+}
+
+export enum ExamQuestionQuestionTypeEnum {
+  CHOICE = "CHOICE",
+  SUBJECTIVE = "SUBJECTIVE",
+}
+
+export enum ExamQuestionLevelEnum {
+  HIGH = "HIGH",
+  MEDIUM = "MEDIUM",
+  LOW = "LOW",
+}
+
+export enum ExamUserSubmitEnum {
+  Y = "Y",
+  N = "N",
+}
+
+export enum ExamUserMarkEnum {
+  Y = "Y",
+  N = "N",
+}
+
+export enum HomeworkUserTempEnum {
+  Y = "Y",
+  N = "N",
+}
+
+export enum PostCourseTypeEnumsEnum {
+  TYPE_BASIC = "TYPE_BASIC",
+  TYPE_MANAGEMENT = "TYPE_MANAGEMENT",
+  TYPE_DOLBOM = "TYPE_DOLBOM",
+  TYPE_BUSINESS = "TYPE_BUSINESS",
+  TYPE_CONSORTIUM = "TYPE_CONSORTIUM",
+  TYPE_UNEMPLOYMENT = "TYPE_UNEMPLOYMENT",
+  TYPE_WORKER = "TYPE_WORKER",
+}
+
+export enum PostPostTypeEnum {
+  NOTICE = "NOTICE",
+  REVIEW = "REVIEW",
+  RESOURCE_ROOM = "RESOURCE_ROOM",
+}
+
+export enum QnaQnaTypeEnum {
+  CONTENT = "CONTENT",
+  PROGRESS = "PROGRESS",
+  SYSTEM = "SYSTEM",
+  CANCEL = "CANCEL",
+  ETC = "ETC",
+}
+
+export enum UserERoleEnum {
+  ROLE_USER = "ROLE_USER",
+  ROLE_ADMIN = "ROLE_ADMIN",
+  ROLE_TUTOR = "ROLE_TUTOR",
+}
+
+export enum UserCourseTypeEnumsEnum {
+  TYPE_BASIC = "TYPE_BASIC",
+  TYPE_MANAGEMENT = "TYPE_MANAGEMENT",
+  TYPE_DOLBOM = "TYPE_DOLBOM",
+  TYPE_BUSINESS = "TYPE_BUSINESS",
+  TYPE_CONSORTIUM = "TYPE_CONSORTIUM",
+  TYPE_UNEMPLOYMENT = "TYPE_UNEMPLOYMENT",
+  TYPE_WORKER = "TYPE_WORKER",
+}
+
+export enum UserRegCategoryEnum {
+  TYPE_EMAIL = "TYPE_EMAIL",
+  TYPE_KAKAO = "TYPE_KAKAO",
+}
+
+export enum UserEroleEnum {
+  ROLE_USER = "ROLE_USER",
+  ROLE_ADMIN = "ROLE_ADMIN",
+  ROLE_TUTOR = "ROLE_TUTOR",
+}
+
+/** 게시글 분류 */
+export enum PostResponseDtoCourseTypeEnumsEnum {
+  TYPE_BASIC = "TYPE_BASIC",
+  TYPE_MANAGEMENT = "TYPE_MANAGEMENT",
+  TYPE_DOLBOM = "TYPE_DOLBOM",
+  TYPE_BUSINESS = "TYPE_BUSINESS",
+  TYPE_CONSORTIUM = "TYPE_CONSORTIUM",
+  TYPE_UNEMPLOYMENT = "TYPE_UNEMPLOYMENT",
+  TYPE_WORKER = "TYPE_WORKER",
+}
+
+/** 게시글 타입 */
+export enum PostResponseDtoPostTypeEnum {
+  NOTICE = "NOTICE",
+  REVIEW = "REVIEW",
+  RESOURCE_ROOM = "RESOURCE_ROOM",
+}
+
+export enum MiniProjectQuestionResponseDtoKdcTypeEnum {
+  BIO_HEALTH_DATA = "BIO_HEALTH_DATA",
+  BIO_HEALTH_DESIGN = "BIO_HEALTH_DESIGN",
+}
+
+export enum MiniProjectResponseDtoKdcTypeEnum {
+  BIO_HEALTH_DATA = "BIO_HEALTH_DATA",
+  BIO_HEALTH_DESIGN = "BIO_HEALTH_DESIGN",
+}
+
+export enum MiniProjectTutorDtoKdcTypeEnum {
+  BIO_HEALTH_DATA = "BIO_HEALTH_DATA",
+  BIO_HEALTH_DESIGN = "BIO_HEALTH_DESIGN",
+}
+
+/** 좋아요 타입 */
+export enum ProductLikeResponseDtoLikeTypeEnum {
+  TYPE_PRODUCT = "TYPE_PRODUCT",
+  TYPE_DEBATE = "TYPE_DEBATE",
+  TYPE_REVIEW = "TYPE_REVIEW",
+}
+
+/** 최소 진도율 타입 (차시 or 전체 최소진도율 %) */
+export enum HomeworkUserResponseDtoLimitRatioTypeEnum {
+  PERCENT = "PERCENT",
+  CHASI = "CHASI",
+}
+
+/** 상태 */
+export enum HomeworkUserResponseDtoStatusEnum {
+  Y = "Y",
+  N = "N",
+}
+
+/** 최소 진도율 타입 (차시 or 전체 최소진도율 %) */
+export enum HomeworkUserDetailResponseDtoLimitRatioTypeEnum {
+  PERCENT = "PERCENT",
+  CHASI = "CHASI",
+}
+
+/** 상태 */
+export enum HomeworkUserDetailResponseDtoStatusEnum {
+  Y = "Y",
+  N = "N",
+}
+
+/** 응시 여부 */
+export enum ExamUserListResponseDtoStatusEnum {
+  Y = "Y",
+  N = "N",
+}
+
+/** 응시 여부 */
+export enum ExamUserDetailResponseDtoStatusEnum {
+  Y = "Y",
+  N = "N",
+}
+
+/** 진행 가능 여부(Y/N) */
+export enum DebateUserResponseDtoProgressStatusEnum {
+  Y = "Y",
+  N = "N",
+}
+
+/** 수강상태 */
+export enum CourseUserResponseDtoCourseUserStatusEnum {
+  TYPE_IN_PROGRESS = "TYPE_IN_PROGRESS",
+  TYPE_DONE = "TYPE_DONE",
+  TYPE_WAITING = "TYPE_WAITING",
+}
+
+/** 수강 신청 완료 여부 WAIT/COMPLETE */
+export enum CourseUserResponseDtoCourseRequestStatusEnum {
+  WAIT = "WAIT",
+  COMPLETE = "COMPLETE",
+}
+
+/** 과정 타입 */
+export enum CourseDetailResponseDtoCourseTypeEnum {
+  TYPE_BASIC = "TYPE_BASIC",
+  TYPE_MANAGEMENT = "TYPE_MANAGEMENT",
+  TYPE_DOLBOM = "TYPE_DOLBOM",
+  TYPE_BUSINESS = "TYPE_BUSINESS",
+  TYPE_CONSORTIUM = "TYPE_CONSORTIUM",
+  TYPE_UNEMPLOYMENT = "TYPE_UNEMPLOYMENT",
+  TYPE_WORKER = "TYPE_WORKER",
+}
+
+/** 온라인/오프라인 타입 */
+export enum CourseDetailResponseDtoCourseOnlineOfflineEnum {
+  ONLINE = "ONLINE",
+  OFFLINE = "OFFLINE",
+}
+
+/** 튜터 타입 */
+export enum CourseTutorResponseDtoCourseTutorTypeEnum {
+  TUTOR = "TUTOR",
+  CONTENT_TUTOR = "CONTENT_TUTOR",
+}
+
+/** 인증 상태의 종류 */
+export enum UserAuthStatusResponseDtoStatusEnum {
+  REQUESTED = "REQUESTED",
+  IN_PROGRESS = "IN_PROGRESS",
+  COMPLETED = "COMPLETED",
+  EXPIRED = "EXPIRED",
+}
+
+/** 인증 상태의 종류 */
+export enum UserAuthResultResponseDtoStatusEnum {
+  REQUESTED = "REQUESTED",
+  IN_PROGRESS = "IN_PROGRESS",
+  COMPLETED = "COMPLETED",
+  EXPIRED = "EXPIRED",
+}
+
+export enum AuthLoginResponseDtoEroleEnum {
+  ROLE_USER = "ROLE_USER",
+  ROLE_ADMIN = "ROLE_ADMIN",
+  ROLE_TUTOR = "ROLE_TUTOR",
 }
 
 export interface FindPostParams {
@@ -2666,35 +3131,155 @@ export interface FindPostParams {
 }
 
 export interface FindOtpAuthParams {
-  evalType: "TYPE_PROGRESS" | "TYPE_ENTER";
+  evalType: EvalTypeEnum;
   /** @format int64 */
   courseUserSeq: number;
 }
 
+export enum EvalTypeEnum {
+  TYPE_PROGRESS = "TYPE_PROGRESS",
+  TYPE_ENTER = "TYPE_ENTER",
+}
+
+export enum FindOtpAuthParams1EvalTypeEnum {
+  TYPE_PROGRESS = "TYPE_PROGRESS",
+  TYPE_ENTER = "TYPE_ENTER",
+}
+
+export interface FindMiniProjectTutorParams {
+  username: string;
+}
+
+export interface CreateMiniProjectTutorParams {
+  kdcType: KdcTypeEnum;
+  username: string;
+}
+
+export enum KdcTypeEnum {
+  BIO_HEALTH_DATA = "BIO_HEALTH_DATA",
+  BIO_HEALTH_DESIGN = "BIO_HEALTH_DESIGN",
+}
+
+export enum CreateMiniProjectTutorParams1KdcTypeEnum {
+  BIO_HEALTH_DATA = "BIO_HEALTH_DATA",
+  BIO_HEALTH_DESIGN = "BIO_HEALTH_DESIGN",
+}
+
+export enum UploadFilesParamsBbsTypeEnum {
+  TYPE_QNA_QUESTION = "TYPE_QNA_QUESTION",
+  TYPE_QNA_ANSWER = "TYPE_QNA_ANSWER",
+  TYPE_BANNER_PC = "TYPE_BANNER_PC",
+  TYPE_BANNER_MOBILE = "TYPE_BANNER_MOBILE",
+  TYPE_BANNER_TABLET = "TYPE_BANNER_TABLET",
+  TYPE_POST = "TYPE_POST",
+  TYPE_USER = "TYPE_USER",
+  TYPE_PRODUCT = "TYPE_PRODUCT",
+  TYPE_CERTIFICATE = "TYPE_CERTIFICATE",
+  TYPE_TUTOR_LICENSE = "TYPE_TUTOR_LICENSE",
+  TYPE_TUTOR_RESUME = "TYPE_TUTOR_RESUME",
+  TYPE_PARTNER_PLAN = "TYPE_PARTNER_PLAN",
+  TYPE_EDUCATION_BUSINESS_REGISTRATION = "TYPE_EDUCATION_BUSINESS_REGISTRATION",
+  TYPE_HOMEWORK = "TYPE_HOMEWORK",
+  TYPE_COURSE_MAIN_IMAGE = "TYPE_COURSE_MAIN_IMAGE",
+  TYPE_CERTIFICATE_TEMPLATE = "TYPE_CERTIFICATE_TEMPLATE",
+  TYPE_CONFIRMATION = "TYPE_CONFIRMATION",
+  TYPE_CONFIRMATION_PROD = "TYPE_CONFIRMATION_PROD",
+  TYPE_MINI_PROJECT = "TYPE_MINI_PROJECT",
+}
+
+export enum UploadFilesParamsEnum {
+  TYPE_QNA_QUESTION = "TYPE_QNA_QUESTION",
+  TYPE_QNA_ANSWER = "TYPE_QNA_ANSWER",
+  TYPE_BANNER_PC = "TYPE_BANNER_PC",
+  TYPE_BANNER_MOBILE = "TYPE_BANNER_MOBILE",
+  TYPE_BANNER_TABLET = "TYPE_BANNER_TABLET",
+  TYPE_POST = "TYPE_POST",
+  TYPE_USER = "TYPE_USER",
+  TYPE_PRODUCT = "TYPE_PRODUCT",
+  TYPE_CERTIFICATE = "TYPE_CERTIFICATE",
+  TYPE_TUTOR_LICENSE = "TYPE_TUTOR_LICENSE",
+  TYPE_TUTOR_RESUME = "TYPE_TUTOR_RESUME",
+  TYPE_PARTNER_PLAN = "TYPE_PARTNER_PLAN",
+  TYPE_EDUCATION_BUSINESS_REGISTRATION = "TYPE_EDUCATION_BUSINESS_REGISTRATION",
+  TYPE_HOMEWORK = "TYPE_HOMEWORK",
+  TYPE_COURSE_MAIN_IMAGE = "TYPE_COURSE_MAIN_IMAGE",
+  TYPE_CERTIFICATE_TEMPLATE = "TYPE_CERTIFICATE_TEMPLATE",
+  TYPE_CONFIRMATION = "TYPE_CONFIRMATION",
+  TYPE_CONFIRMATION_PROD = "TYPE_CONFIRMATION_PROD",
+  TYPE_MINI_PROJECT = "TYPE_MINI_PROJECT",
+}
+
 export interface DeleteFilesParams {
   fileSeqList: number[];
-  bbsType:
-    | "TYPE_QNA_QUESTION"
-    | "TYPE_QNA_ANSWER"
-    | "TYPE_BANNER_PC"
-    | "TYPE_BANNER_MOBILE"
-    | "TYPE_BANNER_TABLET"
-    | "TYPE_POST"
-    | "TYPE_USER"
-    | "TYPE_PRODUCT"
-    | "TYPE_CERTIFICATE"
-    | "TYPE_TUTOR_LICENSE"
-    | "TYPE_TUTOR_RESUME"
-    | "TYPE_PARTNER_PLAN"
-    | "TYPE_EDUCATION_BUSINESS_REGISTRATION"
-    | "TYPE_HOMEWORK"
-    | "TYPE_COURSE_MAIN_IMAGE"
-    | "TYPE_CERTIFICATE_TEMPLATE"
-    | "TYPE_CONFIRMATION"
-    | "TYPE_CONFIRMATION_PROD"
-    | "TYPE_MINI_PROJECT";
+  bbsType: BbsTypeEnum;
   /** @format int64 */
   bbsSeq: number;
+}
+
+export enum BbsTypeEnum {
+  TYPE_QNA_QUESTION = "TYPE_QNA_QUESTION",
+  TYPE_QNA_ANSWER = "TYPE_QNA_ANSWER",
+  TYPE_BANNER_PC = "TYPE_BANNER_PC",
+  TYPE_BANNER_MOBILE = "TYPE_BANNER_MOBILE",
+  TYPE_BANNER_TABLET = "TYPE_BANNER_TABLET",
+  TYPE_POST = "TYPE_POST",
+  TYPE_USER = "TYPE_USER",
+  TYPE_PRODUCT = "TYPE_PRODUCT",
+  TYPE_CERTIFICATE = "TYPE_CERTIFICATE",
+  TYPE_TUTOR_LICENSE = "TYPE_TUTOR_LICENSE",
+  TYPE_TUTOR_RESUME = "TYPE_TUTOR_RESUME",
+  TYPE_PARTNER_PLAN = "TYPE_PARTNER_PLAN",
+  TYPE_EDUCATION_BUSINESS_REGISTRATION = "TYPE_EDUCATION_BUSINESS_REGISTRATION",
+  TYPE_HOMEWORK = "TYPE_HOMEWORK",
+  TYPE_COURSE_MAIN_IMAGE = "TYPE_COURSE_MAIN_IMAGE",
+  TYPE_CERTIFICATE_TEMPLATE = "TYPE_CERTIFICATE_TEMPLATE",
+  TYPE_CONFIRMATION = "TYPE_CONFIRMATION",
+  TYPE_CONFIRMATION_PROD = "TYPE_CONFIRMATION_PROD",
+  TYPE_MINI_PROJECT = "TYPE_MINI_PROJECT",
+}
+
+export enum DeleteFilesParams1BbsTypeEnum {
+  TYPE_QNA_QUESTION = "TYPE_QNA_QUESTION",
+  TYPE_QNA_ANSWER = "TYPE_QNA_ANSWER",
+  TYPE_BANNER_PC = "TYPE_BANNER_PC",
+  TYPE_BANNER_MOBILE = "TYPE_BANNER_MOBILE",
+  TYPE_BANNER_TABLET = "TYPE_BANNER_TABLET",
+  TYPE_POST = "TYPE_POST",
+  TYPE_USER = "TYPE_USER",
+  TYPE_PRODUCT = "TYPE_PRODUCT",
+  TYPE_CERTIFICATE = "TYPE_CERTIFICATE",
+  TYPE_TUTOR_LICENSE = "TYPE_TUTOR_LICENSE",
+  TYPE_TUTOR_RESUME = "TYPE_TUTOR_RESUME",
+  TYPE_PARTNER_PLAN = "TYPE_PARTNER_PLAN",
+  TYPE_EDUCATION_BUSINESS_REGISTRATION = "TYPE_EDUCATION_BUSINESS_REGISTRATION",
+  TYPE_HOMEWORK = "TYPE_HOMEWORK",
+  TYPE_COURSE_MAIN_IMAGE = "TYPE_COURSE_MAIN_IMAGE",
+  TYPE_CERTIFICATE_TEMPLATE = "TYPE_CERTIFICATE_TEMPLATE",
+  TYPE_CONFIRMATION = "TYPE_CONFIRMATION",
+  TYPE_CONFIRMATION_PROD = "TYPE_CONFIRMATION_PROD",
+  TYPE_MINI_PROJECT = "TYPE_MINI_PROJECT",
+}
+
+export enum DeleteFilesParams1Enum {
+  TYPE_QNA_QUESTION = "TYPE_QNA_QUESTION",
+  TYPE_QNA_ANSWER = "TYPE_QNA_ANSWER",
+  TYPE_BANNER_PC = "TYPE_BANNER_PC",
+  TYPE_BANNER_MOBILE = "TYPE_BANNER_MOBILE",
+  TYPE_BANNER_TABLET = "TYPE_BANNER_TABLET",
+  TYPE_POST = "TYPE_POST",
+  TYPE_USER = "TYPE_USER",
+  TYPE_PRODUCT = "TYPE_PRODUCT",
+  TYPE_CERTIFICATE = "TYPE_CERTIFICATE",
+  TYPE_TUTOR_LICENSE = "TYPE_TUTOR_LICENSE",
+  TYPE_TUTOR_RESUME = "TYPE_TUTOR_RESUME",
+  TYPE_PARTNER_PLAN = "TYPE_PARTNER_PLAN",
+  TYPE_EDUCATION_BUSINESS_REGISTRATION = "TYPE_EDUCATION_BUSINESS_REGISTRATION",
+  TYPE_HOMEWORK = "TYPE_HOMEWORK",
+  TYPE_COURSE_MAIN_IMAGE = "TYPE_COURSE_MAIN_IMAGE",
+  TYPE_CERTIFICATE_TEMPLATE = "TYPE_CERTIFICATE_TEMPLATE",
+  TYPE_CONFIRMATION = "TYPE_CONFIRMATION",
+  TYPE_CONFIRMATION_PROD = "TYPE_CONFIRMATION_PROD",
+  TYPE_MINI_PROJECT = "TYPE_MINI_PROJECT",
 }
 
 export interface GetDebateCommentParams {
@@ -2732,15 +3317,37 @@ export interface FindUserPageParams {
    * @default 10
    */
   elementCnt?: number;
-  searchType?:
-    | "TYPE_USERNAME"
-    | "TYPE_BUSINESSNAME"
-    | "TYPE_TEAM"
-    | "TYPE_NAME";
+  searchType?: SearchTypeEnum;
   searchString?: string;
   /** @format int32 */
   status?: number;
-  eRole?: "ROLE_USER" | "ROLE_ADMIN" | "ROLE_TUTOR";
+  eRole?: ERoleEnum;
+}
+
+export enum SearchTypeEnum {
+  TYPE_USERNAME = "TYPE_USERNAME",
+  TYPE_BUSINESSNAME = "TYPE_BUSINESSNAME",
+  TYPE_TEAM = "TYPE_TEAM",
+  TYPE_NAME = "TYPE_NAME",
+}
+
+export enum ERoleEnum {
+  ROLE_USER = "ROLE_USER",
+  ROLE_ADMIN = "ROLE_ADMIN",
+  ROLE_TUTOR = "ROLE_TUTOR",
+}
+
+export enum FindUserPageParams1SearchTypeEnum {
+  TYPE_USERNAME = "TYPE_USERNAME",
+  TYPE_BUSINESSNAME = "TYPE_BUSINESSNAME",
+  TYPE_TEAM = "TYPE_TEAM",
+  TYPE_NAME = "TYPE_NAME",
+}
+
+export enum FindUserPageParams1ERoleEnum {
+  ROLE_USER = "ROLE_USER",
+  ROLE_ADMIN = "ROLE_ADMIN",
+  ROLE_TUTOR = "ROLE_TUTOR",
 }
 
 export interface FindUserIdParams {
@@ -2779,7 +3386,7 @@ export interface GetQnaPageParams {
   fromDtime?: string;
   /** @format date */
   toDtime?: string;
-  searchType?: "SUBJECT" | "CONTENT" | "USERNAME";
+  searchType?: SearchTypeEnum1;
   searchString?: string;
   /** @default "desc | asc" */
   sort?: string;
@@ -2793,6 +3400,18 @@ export interface GetQnaPageParams {
   answeredYn?: boolean;
 }
 
+export enum SearchTypeEnum1 {
+  SUBJECT = "SUBJECT",
+  CONTENT = "CONTENT",
+  USERNAME = "USERNAME",
+}
+
+export enum GetQnaPageParams1SearchTypeEnum {
+  SUBJECT = "SUBJECT",
+  CONTENT = "CONTENT",
+  USERNAME = "USERNAME",
+}
+
 export interface FindMyQnaParams {
   /** @format int32 */
   page: number;
@@ -2800,7 +3419,7 @@ export interface FindMyQnaParams {
   fromDtime?: string;
   /** @format date */
   toDtime?: string;
-  searchType?: "SUBJECT" | "CONTENT" | "USERNAME";
+  searchType?: SearchTypeEnum2;
   searchString?: string;
   answeredYn?: boolean;
   /** @default "desc | asc" */
@@ -2812,6 +3431,18 @@ export interface FindMyQnaParams {
   elementCnt?: number;
 }
 
+export enum SearchTypeEnum2 {
+  SUBJECT = "SUBJECT",
+  CONTENT = "CONTENT",
+  USERNAME = "USERNAME",
+}
+
+export enum FindMyQnaParams1SearchTypeEnum {
+  SUBJECT = "SUBJECT",
+  CONTENT = "CONTENT",
+  USERNAME = "USERNAME",
+}
+
 export interface FindProductsParams {
   /** @format int32 */
   page: number;
@@ -2820,15 +3451,8 @@ export interface FindProductsParams {
   categorySeq?: number;
   /** @format int32 */
   typeNum?: number;
-  courseOnlineOfflineEnum?: "ONLINE" | "OFFLINE";
-  courseTypeEnums?:
-    | "TYPE_BASIC"
-    | "TYPE_MANAGEMENT"
-    | "TYPE_DOLBOM"
-    | "TYPE_BUSINESS"
-    | "TYPE_CONSORTIUM"
-    | "TYPE_UNEMPLOYMENT"
-    | "TYPE_WORKER";
+  courseOnlineOfflineEnum?: CourseOnlineOfflineEnumEnum;
+  courseTypeEnums?: CourseTypeEnumsEnum;
   applyPossible?: boolean;
   /** @format date */
   fromDtime?: string;
@@ -2843,19 +3467,42 @@ export interface FindProductsParams {
   elementCnt?: number;
 }
 
+export enum CourseOnlineOfflineEnumEnum {
+  ONLINE = "ONLINE",
+  OFFLINE = "OFFLINE",
+}
+
+export enum CourseTypeEnumsEnum {
+  TYPE_BASIC = "TYPE_BASIC",
+  TYPE_MANAGEMENT = "TYPE_MANAGEMENT",
+  TYPE_DOLBOM = "TYPE_DOLBOM",
+  TYPE_BUSINESS = "TYPE_BUSINESS",
+  TYPE_CONSORTIUM = "TYPE_CONSORTIUM",
+  TYPE_UNEMPLOYMENT = "TYPE_UNEMPLOYMENT",
+  TYPE_WORKER = "TYPE_WORKER",
+}
+
+export enum FindProductsParams1CourseOnlineOfflineEnumEnum {
+  ONLINE = "ONLINE",
+  OFFLINE = "OFFLINE",
+}
+
+export enum FindProductsParams1CourseTypeEnumsEnum {
+  TYPE_BASIC = "TYPE_BASIC",
+  TYPE_MANAGEMENT = "TYPE_MANAGEMENT",
+  TYPE_DOLBOM = "TYPE_DOLBOM",
+  TYPE_BUSINESS = "TYPE_BUSINESS",
+  TYPE_CONSORTIUM = "TYPE_CONSORTIUM",
+  TYPE_UNEMPLOYMENT = "TYPE_UNEMPLOYMENT",
+  TYPE_WORKER = "TYPE_WORKER",
+}
+
 export interface GetPostPageParams {
   /** @format int32 */
   page: number;
-  courseTypeEnums?:
-    | "TYPE_BASIC"
-    | "TYPE_MANAGEMENT"
-    | "TYPE_DOLBOM"
-    | "TYPE_BUSINESS"
-    | "TYPE_CONSORTIUM"
-    | "TYPE_UNEMPLOYMENT"
-    | "TYPE_WORKER";
-  postType?: "NOTICE" | "REVIEW" | "RESOURCE_ROOM";
-  searchType?: "SUBJECT" | "CONTENT";
+  courseTypeEnums?: CourseTypeEnumsEnum1;
+  postType?: PostTypeEnum;
+  searchType?: SearchTypeEnum3;
   searchString?: string;
   /** @format date */
   fromDtime?: string;
@@ -2870,13 +3517,93 @@ export interface GetPostPageParams {
   elementCnt?: number;
 }
 
+export enum CourseTypeEnumsEnum1 {
+  TYPE_BASIC = "TYPE_BASIC",
+  TYPE_MANAGEMENT = "TYPE_MANAGEMENT",
+  TYPE_DOLBOM = "TYPE_DOLBOM",
+  TYPE_BUSINESS = "TYPE_BUSINESS",
+  TYPE_CONSORTIUM = "TYPE_CONSORTIUM",
+  TYPE_UNEMPLOYMENT = "TYPE_UNEMPLOYMENT",
+  TYPE_WORKER = "TYPE_WORKER",
+}
+
+export enum PostTypeEnum {
+  NOTICE = "NOTICE",
+  REVIEW = "REVIEW",
+  RESOURCE_ROOM = "RESOURCE_ROOM",
+}
+
+export enum SearchTypeEnum3 {
+  SUBJECT = "SUBJECT",
+  CONTENT = "CONTENT",
+}
+
+export enum GetPostPageParams1CourseTypeEnumsEnum {
+  TYPE_BASIC = "TYPE_BASIC",
+  TYPE_MANAGEMENT = "TYPE_MANAGEMENT",
+  TYPE_DOLBOM = "TYPE_DOLBOM",
+  TYPE_BUSINESS = "TYPE_BUSINESS",
+  TYPE_CONSORTIUM = "TYPE_CONSORTIUM",
+  TYPE_UNEMPLOYMENT = "TYPE_UNEMPLOYMENT",
+  TYPE_WORKER = "TYPE_WORKER",
+}
+
+export enum GetPostPageParams1PostTypeEnum {
+  NOTICE = "NOTICE",
+  REVIEW = "REVIEW",
+  RESOURCE_ROOM = "RESOURCE_ROOM",
+}
+
+export enum GetPostPageParams1SearchTypeEnum {
+  SUBJECT = "SUBJECT",
+  CONTENT = "CONTENT",
+}
+
 export interface FindMiniProjectsParams {
-  kdcType: "BIO_HEALTH_DATA" | "BIO_HEALTH_DESIGN";
+  kdcType: KdcTypeEnum1;
   username: string;
 }
 
+export enum KdcTypeEnum1 {
+  BIO_HEALTH_DATA = "BIO_HEALTH_DATA",
+  BIO_HEALTH_DESIGN = "BIO_HEALTH_DESIGN",
+}
+
+export enum FindMiniProjectsParams1KdcTypeEnum {
+  BIO_HEALTH_DATA = "BIO_HEALTH_DATA",
+  BIO_HEALTH_DESIGN = "BIO_HEALTH_DESIGN",
+}
+
+export interface FindMiniProjectsTutorParams {
+  /**
+   * @format int32
+   * @default 1
+   */
+  page?: number;
+  searchString?: string;
+  /** @default "desc" */
+  sort?: string;
+  /**
+   * @format int32
+   * @default 10
+   */
+  elementCnt?: number;
+  username: string;
+  isAnswer: boolean;
+}
+
 export interface FindMiniProjectQuestionsParams {
-  kdcType: "BIO_HEALTH_DATA" | "BIO_HEALTH_DESIGN";
+  kdcType: KdcTypeEnum2;
+}
+
+export enum KdcTypeEnum2 {
+  BIO_HEALTH_DATA = "BIO_HEALTH_DATA",
+  BIO_HEALTH_DESIGN = "BIO_HEALTH_DESIGN",
+}
+
+export enum FindMiniProjectQuestionsParams1KdcTypeEnum {
+  BIO_HEALTH_DATA = "BIO_HEALTH_DATA",
+  BIO_HEALTH_DESIGN = "BIO_HEALTH_DESIGN",
 }
 
 export interface FindMiniProjectParams {
@@ -2976,17 +3703,10 @@ export interface GetDebatePageParams {
 export interface FindCoursesParams {
   /** @format int32 */
   page: number;
-  courseTypeEnums?:
-    | "TYPE_BASIC"
-    | "TYPE_MANAGEMENT"
-    | "TYPE_DOLBOM"
-    | "TYPE_BUSINESS"
-    | "TYPE_CONSORTIUM"
-    | "TYPE_UNEMPLOYMENT"
-    | "TYPE_WORKER";
-  searchType?: "TYPE_COURSE_NAME" | "TYPE_DESCRIPTION";
+  courseTypeEnums?: CourseTypeEnumsEnum2;
+  searchType?: SearchTypeEnum4;
   searchString?: string;
-  courseOnlineOfflineEnums?: "ONLINE" | "OFFLINE";
+  courseOnlineOfflineEnums?: CourseOnlineOfflineEnumsEnum;
   /** @format date */
   fromDtime?: string;
   /** @format date */
@@ -2998,6 +3718,46 @@ export interface FindCoursesParams {
    * @default 10
    */
   elementCnt?: number;
+}
+
+export enum CourseTypeEnumsEnum2 {
+  TYPE_BASIC = "TYPE_BASIC",
+  TYPE_MANAGEMENT = "TYPE_MANAGEMENT",
+  TYPE_DOLBOM = "TYPE_DOLBOM",
+  TYPE_BUSINESS = "TYPE_BUSINESS",
+  TYPE_CONSORTIUM = "TYPE_CONSORTIUM",
+  TYPE_UNEMPLOYMENT = "TYPE_UNEMPLOYMENT",
+  TYPE_WORKER = "TYPE_WORKER",
+}
+
+export enum SearchTypeEnum4 {
+  TYPE_COURSE_NAME = "TYPE_COURSE_NAME",
+  TYPE_DESCRIPTION = "TYPE_DESCRIPTION",
+}
+
+export enum CourseOnlineOfflineEnumsEnum {
+  ONLINE = "ONLINE",
+  OFFLINE = "OFFLINE",
+}
+
+export enum FindCoursesParams1CourseTypeEnumsEnum {
+  TYPE_BASIC = "TYPE_BASIC",
+  TYPE_MANAGEMENT = "TYPE_MANAGEMENT",
+  TYPE_DOLBOM = "TYPE_DOLBOM",
+  TYPE_BUSINESS = "TYPE_BUSINESS",
+  TYPE_CONSORTIUM = "TYPE_CONSORTIUM",
+  TYPE_UNEMPLOYMENT = "TYPE_UNEMPLOYMENT",
+  TYPE_WORKER = "TYPE_WORKER",
+}
+
+export enum FindCoursesParams1SearchTypeEnum {
+  TYPE_COURSE_NAME = "TYPE_COURSE_NAME",
+  TYPE_DESCRIPTION = "TYPE_DESCRIPTION",
+}
+
+export enum FindCoursesParams1CourseOnlineOfflineEnumsEnum {
+  ONLINE = "ONLINE",
+  OFFLINE = "OFFLINE",
 }
 
 export interface FindCourseListenUserParams {
@@ -3015,16 +3775,9 @@ export interface FindCourseListenUserParams {
 }
 
 export interface GetExamExcelParams {
-  courseOnlineOfflineEnums?: "ONLINE" | "OFFLINE";
-  courseTypeEnums?:
-    | "TYPE_BASIC"
-    | "TYPE_MANAGEMENT"
-    | "TYPE_DOLBOM"
-    | "TYPE_BUSINESS"
-    | "TYPE_CONSORTIUM"
-    | "TYPE_UNEMPLOYMENT"
-    | "TYPE_WORKER";
-  searchType?: "ALL" | "COURSE_NAME" | "USERNAME" | "NAME";
+  courseOnlineOfflineEnums?: CourseOnlineOfflineEnumsEnum1;
+  courseTypeEnums?: CourseTypeEnumsEnum3;
+  searchType?: SearchTypeEnum5;
   searchString?: string;
   /** @format date */
   studyStartedAt?: string;
@@ -3038,10 +3791,54 @@ export interface GetExamExcelParams {
   sort?: string;
 }
 
+export enum CourseOnlineOfflineEnumsEnum1 {
+  ONLINE = "ONLINE",
+  OFFLINE = "OFFLINE",
+}
+
+export enum CourseTypeEnumsEnum3 {
+  TYPE_BASIC = "TYPE_BASIC",
+  TYPE_MANAGEMENT = "TYPE_MANAGEMENT",
+  TYPE_DOLBOM = "TYPE_DOLBOM",
+  TYPE_BUSINESS = "TYPE_BUSINESS",
+  TYPE_CONSORTIUM = "TYPE_CONSORTIUM",
+  TYPE_UNEMPLOYMENT = "TYPE_UNEMPLOYMENT",
+  TYPE_WORKER = "TYPE_WORKER",
+}
+
+export enum SearchTypeEnum5 {
+  ALL = "ALL",
+  COURSE_NAME = "COURSE_NAME",
+  USERNAME = "USERNAME",
+  NAME = "NAME",
+}
+
+export enum GetExamExcelParams1CourseOnlineOfflineEnumsEnum {
+  ONLINE = "ONLINE",
+  OFFLINE = "OFFLINE",
+}
+
+export enum GetExamExcelParams1CourseTypeEnumsEnum {
+  TYPE_BASIC = "TYPE_BASIC",
+  TYPE_MANAGEMENT = "TYPE_MANAGEMENT",
+  TYPE_DOLBOM = "TYPE_DOLBOM",
+  TYPE_BUSINESS = "TYPE_BUSINESS",
+  TYPE_CONSORTIUM = "TYPE_CONSORTIUM",
+  TYPE_UNEMPLOYMENT = "TYPE_UNEMPLOYMENT",
+  TYPE_WORKER = "TYPE_WORKER",
+}
+
+export enum GetExamExcelParams1SearchTypeEnum {
+  ALL = "ALL",
+  COURSE_NAME = "COURSE_NAME",
+  USERNAME = "USERNAME",
+  NAME = "NAME",
+}
+
 export interface FindCourseUsersParams {
   /** @format int32 */
   page: number;
-  courseUserStatus?: "TYPE_IN_PROGRESS" | "TYPE_DONE" | "TYPE_WAITING";
+  courseUserStatus?: CourseUserStatusEnum;
   complete?: boolean;
   /** @format date */
   studyStartedAt?: string;
@@ -3049,8 +3846,9 @@ export interface FindCourseUsersParams {
   fromDtime?: string;
   /** @format date */
   toDtime?: string;
-  courseRequestStatus?: "WAIT" | "COMPLETE";
-  courseOnlineOfflineEnums?: "ONLINE" | "OFFLINE";
+  searchString?: string;
+  courseRequestStatus?: CourseRequestStatusEnum;
+  courseOnlineOfflineEnums?: CourseOnlineOfflineEnumsEnum2;
   /** @default "desc | asc" */
   sort?: string;
   /**
@@ -3060,15 +3858,65 @@ export interface FindCourseUsersParams {
   elementCnt?: number;
 }
 
+export enum CourseUserStatusEnum {
+  TYPE_IN_PROGRESS = "TYPE_IN_PROGRESS",
+  TYPE_DONE = "TYPE_DONE",
+  TYPE_WAITING = "TYPE_WAITING",
+}
+
+export enum CourseRequestStatusEnum {
+  WAIT = "WAIT",
+  COMPLETE = "COMPLETE",
+}
+
+export enum CourseOnlineOfflineEnumsEnum2 {
+  ONLINE = "ONLINE",
+  OFFLINE = "OFFLINE",
+}
+
+export enum FindCourseUsersParams1CourseUserStatusEnum {
+  TYPE_IN_PROGRESS = "TYPE_IN_PROGRESS",
+  TYPE_DONE = "TYPE_DONE",
+  TYPE_WAITING = "TYPE_WAITING",
+}
+
+export enum FindCourseUsersParams1CourseRequestStatusEnum {
+  WAIT = "WAIT",
+  COMPLETE = "COMPLETE",
+}
+
+export enum FindCourseUsersParams1CourseOnlineOfflineEnumsEnum {
+  ONLINE = "ONLINE",
+  OFFLINE = "OFFLINE",
+}
+
 export interface FindAllCategoryParams {
-  itemType?: "PRODUCT";
-  categorySearchType: "TYPE_HEADER" | "TYPE_ALL";
+  itemType?: ItemTypeEnum;
+  categorySearchType: CategorySearchTypeEnum;
+}
+
+export enum ItemTypeEnum {
+  PRODUCT = "PRODUCT",
+}
+
+export enum CategorySearchTypeEnum {
+  TYPE_HEADER = "TYPE_HEADER",
+  TYPE_ALL = "TYPE_ALL",
+}
+
+export enum FindAllCategoryParams1ItemTypeEnum {
+  PRODUCT = "PRODUCT",
+}
+
+export enum FindAllCategoryParams1CategorySearchTypeEnum {
+  TYPE_HEADER = "TYPE_HEADER",
+  TYPE_ALL = "TYPE_ALL",
 }
 
 export interface FindBannerPageParams {
   /** @format int32 */
   page: number;
-  bannerPagingType: "TYPE_SORT" | "TYPE_ASCENDING" | "TYPE_DESCENDING";
+  bannerPagingType: BannerPagingTypeEnum;
   /** @format date */
   fromDtime?: string;
   /** @format date */
@@ -3078,6 +3926,18 @@ export interface FindBannerPageParams {
    * @default 10
    */
   elementCnt?: number;
+}
+
+export enum BannerPagingTypeEnum {
+  TYPE_SORT = "TYPE_SORT",
+  TYPE_ASCENDING = "TYPE_ASCENDING",
+  TYPE_DESCENDING = "TYPE_DESCENDING",
+}
+
+export enum FindBannerPageParams1BannerPagingTypeEnum {
+  TYPE_SORT = "TYPE_SORT",
+  TYPE_ASCENDING = "TYPE_ASCENDING",
+  TYPE_DESCENDING = "TYPE_DESCENDING",
 }
 
 export interface UserTossAuthStatusParams {

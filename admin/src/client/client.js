@@ -8,6 +8,7 @@ const url = `${process.env.VITE_API_URL}/v3/api-docs/newdeal-app`;
 
 async function getDocs() {
   const { data } = await axios.get(url);
+  console.log(url);
 
   try {
     if (fs.readFileSync("./src/client/api-docs.json")) {

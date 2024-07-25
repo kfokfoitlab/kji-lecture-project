@@ -13,7 +13,7 @@
     "lint:eslint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\" --no-error-on-unmatched-pattern --cache --cache-location .eslintcache",
     "client": "run-s client:download client:build",
     "client:download": "node src/client/client.js",
-    "client:build": "swagger-typescript-api --path src/client/api-docs.json --output ./src/@swagger --modular --clean-output --extract-request-params --no-client"
+    "client:build": "swagger-typescript-api --path src/client/api-docs.json --output ./src/@swagger --modular --clean-output --extract-request-params --no-client --extract-enums"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",

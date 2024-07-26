@@ -1,8 +1,8 @@
-import styled from "@emotion/styled";
-import { Button } from "@mui/material";
-import { ButtonProps } from "./index";
-import { generateEmotionStyle } from "../../utils/emotion";
 import { css } from "@emotion/react";
+import styled from "@emotion/styled";
+import { ButtonProps } from "@/components/Button/index";
+import { generateEmotionStyle } from "@/utils/emotion";
+import { Button } from "@mui/material";
 
 export const StyledButton = styled(
   ({
@@ -16,6 +16,8 @@ export const StyledButton = styled(
     width,
     height,
     padding,
+    disabledBackgroundColor,
+    disabledTextColor,
     ...args
   }: ButtonProps) => <Button {...args} />,
 )`
@@ -27,7 +29,30 @@ export const StyledButton = styled(
   ${({ borderRadius }) =>
     generateEmotionStyle("borderRadius", borderRadius, "px")};
   ${({ textColor }) => generateEmotionStyle("color", textColor)};
-  ${({ width }) => generateEmotionStyle("width", width, "px")};
+  ${({ width }) => {
+    if (!width) {
+      return;
+    }
+
+    if (typeof width === "number") {
+      return css`
+        width: ${width}px;
+      `;
+    }
+
+    return css`
+      width: ${width};
+    `;
+  }};
+
+  &.Mui-disabled {
+    ${({ disabledBackgroundColor }) =>
+      generateEmotionStyle("backgroundColor", disabledBackgroundColor)};
+
+    ${({ disabledTextColor }) =>
+      generateEmotionStyle("color", disabledTextColor)};
+  }
+  ${({ width }) => generateEmotionStyle("minWidth", width, "px")};
   ${({ height }) => generateEmotionStyle("height", height, "px")};
   ${({ padding }) => generateEmotionStyle("padding", padding)};
 
@@ -44,5 +69,10 @@ export const StyledButton = styled(
         "backgroundColor",
         hoverBackgroundColor || backgroundColor,
       )};
+  }
+
+  &.Mui-disabled {
+    ${({ disabledBackgroundColor }) =>
+      generateEmotionStyle("backgroundColor", disabledBackgroundColor)};
   }
 `;

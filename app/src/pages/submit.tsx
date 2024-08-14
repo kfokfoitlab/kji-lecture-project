@@ -142,7 +142,9 @@ export default function SubmitPage() {
         <p className="mb-[16px] text-[20px] font-[500]">
           [{data.chapter}차시 Level0{data.level}]
         </p>
-        <p className="mb-[26px] font-[500]">{data.content}</p>
+        <p className="mb-[26px] font-[500] whitespace-pre-wrap">
+          {data.content}
+        </p>
 
         <div className="flex gap-[12px] mb-[40px]">
           {linkData.data.map((value) => (

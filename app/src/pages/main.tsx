@@ -47,7 +47,14 @@ export default function MainPage() {
       });
 
       setMiniprojectData(miniprojectData);
-      setData(data.sort((a, b) => a.chapter! - b.chapter!));
+      setData(
+        data.sort((a, b) => {
+          if (a.chapter === b.chapter) {
+            return a.level! - b.level!;
+          }
+          return a.chapter! - b.chapter!;
+        }),
+      );
     } catch (e) {
       //
     }

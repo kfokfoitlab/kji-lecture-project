@@ -138,7 +138,7 @@ export default function MainPage() {
                   fontWeight="normal"
                   onClick={() =>
                     navigate(
-                      `/detail/${value.miniProjectQuestion?.seq}?username=${username}&miniProjectSeq=${value.seq}`,
+                      `/detail/${value.miniProjectQuestion?.seq}?username=${username}&miniProjectSeq=${value.seq}&submitUserName=${value.username}`,
                     )
                   }
                 >

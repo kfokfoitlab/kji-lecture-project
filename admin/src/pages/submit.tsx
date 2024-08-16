@@ -15,6 +15,7 @@ export default function SubmitPage() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const username = searchParams.get("username");
+  const submitUserName = searchParams.get("submitUserName");
   const miniProjectSeq = searchParams.get("miniProjectSeq");
   const [data, setData] = useState<MiniProjectQuestionResponseDto | null>(null);
   const [miniProjectData, setMiniProjectData] =
@@ -30,7 +31,7 @@ export default function SubmitPage() {
         `/app/miniProject/${miniProjectSeq}`,
         {
           params: {
-            username,
+            username: submitUserName,
           },
         },
       );

@@ -97,7 +97,7 @@ export default function MainPage() {
                 height={40}
                 padding="0"
                 borderRadius={40}
-                backgroundColor="#033568"
+                backgroundColor="#999"
                 textColor="#fff"
                 fontWeight="normal"
                 onClick={() =>

@@ -197,58 +197,16 @@ export const BIO_HEALTH_DESIGN_LINK_LIST: LinkListData[] = [
     ],
   },
   {
-    chapter: 19,
+    chapter: 17,
     level: 1,
     data: [
       {
         text: "프로젝트 수행 가이드 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20수행%20가이드.pdf",
+        href: "https://hcodmouenndx19418307.cdn.ntruss.com/course/homework/bio2/[바이오헬스-디자인] 미니프로젝트 수행 가이드.pdf",
       },
       {
         text: "답안 제출 파일 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/biohealth/[바이오헬스-디자인] 최종프로젝트(19차시-L1) 문제 및 답안 제출 파일.docx",
-      },
-    ],
-  },
-  {
-    chapter: 19,
-    level: 2,
-    data: [
-      {
-        text: "프로젝트 수행 가이드 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20수행%20가이드.pdf",
-      },
-      {
-        text: "답안 제출 파일 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/biohealth/[바이오헬스-디자인] 최종프로젝트(19차시-L2) 문제 및 답안 제출 파일.docx",
-      },
-    ],
-  },
-  {
-    chapter: 20,
-    level: 1,
-    data: [
-      {
-        text: "프로젝트 수행 가이드 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20수행%20가이드.pdf",
-      },
-      {
-        text: "답안 제출 파일 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/biohealth/[바이오헬스-디자인] 최종프로젝트(20차시-L1) 문제 및 답안 제출 파일.docx",
-      },
-    ],
-  },
-  {
-    chapter: 20,
-    level: 2,
-    data: [
-      {
-        text: "프로젝트 수행 가이드 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20수행%20가이드.pdf",
-      },
-      {
-        text: "답안 제출 파일 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/biohealth/[바이오헬스-디자인] 최종프로젝트(20차시-L2) 문제 및 답안 제출 파일.docx",
+        href: "https://hcodmouenndx19418307.cdn.ntruss.com/course/homework/bio2/[바이오헬스-디자인] 미니프로젝트 답안 제출 파일.docx",
       },
     ],
   },

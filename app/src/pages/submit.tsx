@@ -8,6 +8,7 @@ import Button from "../components/Button";
 import {
   BIO_HEALTH_DATA_LINK_LIST,
   BIO_HEALTH_DESIGN_LINK_LIST,
+  CHAT_GPT_LINK_LIST,
   LinkListData,
 } from "../data/link";
 import { API } from "../utils/api";
@@ -33,10 +34,24 @@ export default function SubmitPage() {
       );
 
       setData(data);
-      const target =
-        data.kdcType === "BIO_HEALTH_DATA"
-          ? BIO_HEALTH_DATA_LINK_LIST
-          : BIO_HEALTH_DESIGN_LINK_LIST;
+
+      let target: LinkListData[] = [];
+
+      if (data.kdcType === "BIO_HEALTH_DATA") {
+        target = BIO_HEALTH_DATA_LINK_LIST;
+      }
+      if (data.kdcType === "BIO_HEALTH_DESIGN") {
+        target = BIO_HEALTH_DESIGN_LINK_LIST;
+      }
+      if (data.kdcType === "CHAT_GPT") {
+        target = CHAT_GPT_LINK_LIST;
+      }
+
+      // const target =
+      //   data.kdcType === "BIO_HEALTH_DATA"
+      //     ? BIO_HEALTH_DATA_LINK_LIST
+      //     : BIO_HEALTH_DESIGN_LINK_LIST;
+
       setLinkData(
         target.find(
           ({ chapter, level }) =>

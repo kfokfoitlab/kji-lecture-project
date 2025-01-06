@@ -211,3 +211,106 @@ export const BIO_HEALTH_DESIGN_LINK_LIST: LinkListData[] = [
     ],
   },
 ];
+
+export const CHAT_GPT_LINK_LIST: LinkListData[] = [
+  {
+    chapter: 9,
+    level: 1,
+    data: [
+      {
+        text: "첨부 파일 다운",
+        href: "https://kfo-contents.cdn.ntruss.com/tmp/chat-gpt/9차시%20프롬프트%20엔지니어링_이력서%20작성.pdf",
+      },
+    ],
+  },
+  {
+    chapter: 10,
+    level: 1,
+    data: [
+      {
+        text: "첨부 파일 다운",
+        href: "https://kfo-contents.cdn.ntruss.com/tmp/chat-gpt/프롬프트%20제출%20통합양식(성함).xlsx",
+      },
+    ],
+  },
+  {
+    chapter: 11,
+    level: 1,
+    data: [
+      {
+        text: "첨부 파일 다운",
+        href: "https://kfo-contents.cdn.ntruss.com/tmp/chat-gpt/프롬프트%20제출%20통합양식(성함).xlsx",
+      },
+    ],
+  },
+  {
+    chapter: 12,
+    level: 1,
+    data: [
+      {
+        text: "첨부 파일 다운",
+        href: "https://kfo-contents.cdn.ntruss.com/tmp/chat-gpt/프롬프트%20제출%20통합양식(성함).xlsx",
+      },
+    ],
+  },
+  {
+    chapter: 13,
+    level: 1,
+    data: [
+      {
+        text: "첨부 파일 다운",
+        href: "https://kfo-contents.cdn.ntruss.com/tmp/chat-gpt/프롬프트%20제출%20통합양식(성함).xlsx",
+      },
+    ],
+  },
+  {
+    chapter: 16,
+    level: 1,
+    data: [
+      {
+        text: "첨부 파일 다운",
+        href: "https://kfo-contents.cdn.ntruss.com/tmp/chat-gpt/16차시%20GPT%20API의%20이해(1)%20Basic_v2.0.xlsx",
+      },
+    ],
+  },
+  {
+    chapter: 19,
+    level: 1,
+    data: [
+      {
+        text: "첨부 파일 다운",
+        href: "https://kfo-contents.cdn.ntruss.com/tmp/chat-gpt/프롬프트%20제출%20통합양식(성함).xlsx",
+      },
+    ],
+  },
+  {
+    chapter: 24,
+    level: 1,
+    data: [
+      {
+        text: "첨부 파일 다운",
+        href: "https://kfo-contents.cdn.ntruss.com/tmp/chat-gpt/프롬프트%20제출%20통합양식(성함).xlsx",
+      },
+    ],
+  },
+  {
+    chapter: 26,
+    level: 1,
+    data: [
+      {
+        text: "첨부 파일 다운",
+        href: "https://kfo-contents.cdn.ntruss.com/tmp/chat-gpt/프롬프트%20제출%20통합양식(성함).xlsx",
+      },
+    ],
+  },
+  {
+    chapter: 27,
+    level: 1,
+    data: [
+      {
+        text: "첨부 파일 다운",
+        href: "https://kfo-contents.cdn.ntruss.com/tmp/chat-gpt/프롬프트%20제출%20통합양식(성함).xlsx",
+      },
+    ],
+  },
+];

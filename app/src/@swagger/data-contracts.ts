@@ -168,7 +168,7 @@ export interface MiniProjectRequestDto {
   chapter: number;
   /** @format int32 */
   level: number;
-  kdcType: "BIO_HEALTH_DATA" | "BIO_HEALTH_DESIGN";
+  kdcType: "BIO_HEALTH_DATA" | "BIO_HEALTH_DESIGN" | "CHAT_GPT";
   username: string;
 }
 
@@ -1977,21 +1977,6 @@ export interface MiniProjectAnswerResponseDto {
   name?: string;
 }
 
-export interface MiniProjectResponseDto {
-  /** @format int64 */
-  seq: number;
-  /** @format int32 */
-  chapter: number;
-  /** @format int32 */
-  level: number;
-  kdcType: "BIO_HEALTH_DATA" | "BIO_HEALTH_DESIGN";
-  username: string;
-  isComplete: boolean;
-  /** s3 파일 */
-  s3Files?: FileResponseDto[];
-  miniProjectAnswer?: MiniProjectAnswerResponseDto;
-}
-
 export interface MiniProjectQuestionResponseDto {
   /** @format int64 */
   seq?: number;
@@ -2001,7 +1986,35 @@ export interface MiniProjectQuestionResponseDto {
   level?: number;
   subject?: string;
   content?: string;
-  kdcType?: "BIO_HEALTH_DATA" | "BIO_HEALTH_DESIGN";
+  kdcType?: "BIO_HEALTH_DATA" | "BIO_HEALTH_DESIGN" | "CHAT_GPT";
+}
+
+export interface MiniProjectResponseDto {
+  /** @format int64 */
+  seq: number;
+  /** @format int32 */
+  chapter: number;
+  /** @format int32 */
+  level: number;
+  kdcType: "BIO_HEALTH_DATA" | "BIO_HEALTH_DESIGN" | "CHAT_GPT";
+  username: string;
+  isComplete: boolean;
+  /** s3 파일 */
+  s3Files?: FileResponseDto[];
+  miniProjectAnswer?: MiniProjectAnswerResponseDto;
+  miniProjectQuestion?: MiniProjectQuestionResponseDto;
+}
+
+export interface PageResponseDtoMiniProjectResponseDto {
+  metadata?: Metadata;
+  data?: MiniProjectResponseDto[];
+}
+
+export interface MiniProjectTutorDto {
+  /** @format int64 */
+  id?: number;
+  kdcType?: "BIO_HEALTH_DATA" | "BIO_HEALTH_DESIGN" | "CHAT_GPT";
+  username?: string;
 }
 
 export interface MainDisplayResponseDto {
@@ -2372,12 +2385,12 @@ export interface PageableObject {
   /** @format int64 */
   offset?: number;
   sort?: SortObject;
+  /** @format int32 */
+  pageSize?: number;
   paged?: boolean;
   unpaged?: boolean;
   /** @format int32 */
   pageNumber?: number;
-  /** @format int32 */
-  pageSize?: number;
 }
 
 export interface SortObject {
@@ -2671,6 +2684,15 @@ export interface FindOtpAuthParams {
   courseUserSeq: number;
 }
 
+export interface FindMiniProjectTutorParams {
+  username: string;
+}
+
+export interface CreateMiniProjectTutorParams {
+  kdcType: "BIO_HEALTH_DATA" | "BIO_HEALTH_DESIGN" | "CHAT_GPT";
+  username: string;
+}
+
 export interface DeleteFilesParams {
   fileSeqList: number[];
   bbsType:
@@ -2871,12 +2893,30 @@ export interface GetPostPageParams {
 }
 
 export interface FindMiniProjectsParams {
-  kdcType: "BIO_HEALTH_DATA" | "BIO_HEALTH_DESIGN";
+  kdcType: "BIO_HEALTH_DATA" | "BIO_HEALTH_DESIGN" | "CHAT_GPT";
   username: string;
 }
 
+export interface FindMiniProjectsTutorParams {
+  /**
+   * @format int32
+   * @default 1
+   */
+  page?: number;
+  searchString?: string;
+  /** @default "desc" */
+  sort?: string;
+  /**
+   * @format int32
+   * @default 10
+   */
+  elementCnt?: number;
+  username: string;
+  isAnswer: boolean;
+}
+
 export interface FindMiniProjectQuestionsParams {
-  kdcType: "BIO_HEALTH_DATA" | "BIO_HEALTH_DESIGN";
+  kdcType: "BIO_HEALTH_DATA" | "BIO_HEALTH_DESIGN" | "CHAT_GPT";
 }
 
 export interface FindMiniProjectParams {
@@ -3049,6 +3089,7 @@ export interface FindCourseUsersParams {
   fromDtime?: string;
   /** @format date */
   toDtime?: string;
+  searchString?: string;
   courseRequestStatus?: "WAIT" | "COMPLETE";
   courseOnlineOfflineEnums?: "ONLINE" | "OFFLINE";
   /** @default "desc | asc" */

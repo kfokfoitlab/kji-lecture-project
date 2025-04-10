@@ -146,11 +146,11 @@ export const BIO_HEALTH_DESIGN_LINK_LIST: LinkListData[] = [
     data: [
       {
         text: "프로젝트 수행 가이드 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20수행%20가이드.pdf",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20수행%20가이드.pdf",
       },
       {
         text: "답안 제출 파일 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/biohealth/[바이오헬스-디자인] 미니프로젝트 답안 제출 파일.docx",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/biohealth/[바이오헬스-디자인] 미니프로젝트 답안 제출 파일.docx",
       },
     ],
   },
@@ -160,11 +160,11 @@ export const BIO_HEALTH_DESIGN_LINK_LIST: LinkListData[] = [
     data: [
       {
         text: "프로젝트 수행 가이드 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20수행%20가이드.pdf",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20수행%20가이드.pdf",
       },
       {
         text: "답안 제출 파일 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/biohealth/[바이오헬스-디자인] 미니프로젝트 답안 제출 파일.docx",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/biohealth/[바이오헬스-디자인] 미니프로젝트 답안 제출 파일.docx",
       },
     ],
   },
@@ -174,11 +174,11 @@ export const BIO_HEALTH_DESIGN_LINK_LIST: LinkListData[] = [
     data: [
       {
         text: "프로젝트 수행 가이드 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20수행%20가이드.pdf",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20수행%20가이드.pdf",
       },
       {
         text: "답안 제출 파일 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/biohealth/[바이오헬스-디자인] 미니프로젝트 답안 제출 파일.docx",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/biohealth/[바이오헬스-디자인] 미니프로젝트 답안 제출 파일.docx",
       },
     ],
   },
@@ -188,11 +188,11 @@ export const BIO_HEALTH_DESIGN_LINK_LIST: LinkListData[] = [
     data: [
       {
         text: "프로젝트 수행 가이드 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20수행%20가이드.pdf",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20수행%20가이드.pdf",
       },
       {
         text: "답안 제출 파일 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/biohealth/[바이오헬스-디자인] 미니프로젝트 답안 제출 파일.docx",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/biohealth/[바이오헬스-디자인] 미니프로젝트 답안 제출 파일.docx",
       },
     ],
   },
@@ -202,11 +202,11 @@ export const BIO_HEALTH_DESIGN_LINK_LIST: LinkListData[] = [
     data: [
       {
         text: "프로젝트 수행 가이드 다운",
-        href: "https://hcodmouenndx19418307.cdn.ntruss.com/course/homework/bio2/[바이오헬스-디자인] 미니프로젝트 수행 가이드.pdf",
+        href: "https://kji.edge.naverncp.com/course/homework/bio2/[바이오헬스-디자인]%20미니프로젝트%20수행%20가이드.pdf",
       },
       {
         text: "답안 제출 파일 다운",
-        href: "https://hcodmouenndx19418307.cdn.ntruss.com/course/homework/bio2/[바이오헬스-디자인] 미니프로젝트 답안 제출 파일.docx",
+        href: "https://kji.edge.naverncp.com/course/homework/bio2/[바이오헬스-디자인] 미니프로젝트 답안 제출 파일.docx",
       },
     ],
   },
@@ -219,7 +219,7 @@ export const CHAT_GPT_LINK_LIST: LinkListData[] = [
     data: [
       {
         text: "첨부 파일 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/chat-gpt/9차시%20프롬프트%20엔지니어링_이력서%20작성.pdf",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/chat-gpt/9차시%20프롬프트%20엔지니어링_이력서%20작성.pdf",
       },
     ],
   },
@@ -229,7 +229,7 @@ export const CHAT_GPT_LINK_LIST: LinkListData[] = [
     data: [
       {
         text: "첨부 파일 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/chat-gpt/프롬프트%20제출%20통합양식(성함).xlsx",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/chat-gpt/프롬프트%20제출%20통합양식(성함).xlsx",
       },
     ],
   },
@@ -239,7 +239,7 @@ export const CHAT_GPT_LINK_LIST: LinkListData[] = [
     data: [
       {
         text: "첨부 파일 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/chat-gpt/프롬프트%20제출%20통합양식(성함).xlsx",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/chat-gpt/프롬프트%20제출%20통합양식(성함).xlsx",
       },
     ],
   },
@@ -249,7 +249,7 @@ export const CHAT_GPT_LINK_LIST: LinkListData[] = [
     data: [
       {
         text: "첨부 파일 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/chat-gpt/프롬프트%20제출%20통합양식(성함).xlsx",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/chat-gpt/프롬프트%20제출%20통합양식(성함).xlsx",
       },
     ],
   },
@@ -259,7 +259,7 @@ export const CHAT_GPT_LINK_LIST: LinkListData[] = [
     data: [
       {
         text: "첨부 파일 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/chat-gpt/프롬프트%20제출%20통합양식(성함).xlsx",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/chat-gpt/프롬프트%20제출%20통합양식(성함).xlsx",
       },
     ],
   },
@@ -269,7 +269,7 @@ export const CHAT_GPT_LINK_LIST: LinkListData[] = [
     data: [
       {
         text: "첨부 파일 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/chat-gpt/16차시%20GPT%20API의%20이해(1)%20Basic_v2.0.xlsx",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/chat-gpt/16차시%20GPT%20API의%20이해(1)%20Basic_v2.0.xlsx",
       },
     ],
   },
@@ -279,7 +279,7 @@ export const CHAT_GPT_LINK_LIST: LinkListData[] = [
     data: [
       {
         text: "첨부 파일 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/chat-gpt/프롬프트%20제출%20통합양식(성함).xlsx",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/chat-gpt/프롬프트%20제출%20통합양식(성함).xlsx",
       },
     ],
   },
@@ -289,7 +289,7 @@ export const CHAT_GPT_LINK_LIST: LinkListData[] = [
     data: [
       {
         text: "첨부 파일 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/chat-gpt/프롬프트%20제출%20통합양식(성함).xlsx",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/chat-gpt/프롬프트%20제출%20통합양식(성함).xlsx",
       },
     ],
   },
@@ -299,7 +299,7 @@ export const CHAT_GPT_LINK_LIST: LinkListData[] = [
     data: [
       {
         text: "첨부 파일 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/chat-gpt/프롬프트%20제출%20통합양식(성함).xlsx",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/chat-gpt/프롬프트%20제출%20통합양식(성함).xlsx",
       },
     ],
   },
@@ -309,7 +309,7 @@ export const CHAT_GPT_LINK_LIST: LinkListData[] = [
     data: [
       {
         text: "첨부 파일 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/chat-gpt/프롬프트%20제출%20통합양식(성함).xlsx",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/chat-gpt/프롬프트%20제출%20통합양식(성함).xlsx",
       },
     ],
   },

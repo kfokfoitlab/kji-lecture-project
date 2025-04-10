@@ -831,6 +831,11 @@ export interface CourseUserDetailResponseDto {
    * @format double
    */
   ratio: number;
+  /**
+   * 총 진도율(초)
+   * @format int64
+   */
+  sumStudyTime: number;
   /** Content Page Response Dto */
   lastViewPage?: ContentPageDetailResponseDto;
   /**
@@ -2373,11 +2378,11 @@ export interface PageDebateCommentResponseDto {
   /** @format int32 */
   number?: number;
   sort?: SortObject;
+  first?: boolean;
+  last?: boolean;
   /** @format int32 */
   numberOfElements?: number;
   pageable?: PageableObject;
-  first?: boolean;
-  last?: boolean;
   empty?: boolean;
 }
 
@@ -2386,17 +2391,17 @@ export interface PageableObject {
   offset?: number;
   sort?: SortObject;
   /** @format int32 */
+  pageNumber?: number;
+  /** @format int32 */
   pageSize?: number;
   paged?: boolean;
   unpaged?: boolean;
-  /** @format int32 */
-  pageNumber?: number;
 }
 
 export interface SortObject {
   empty?: boolean;
-  unsorted?: boolean;
   sorted?: boolean;
+  unsorted?: boolean;
 }
 
 export interface PageResponseDtoCourseResponseDto {
@@ -2438,6 +2443,11 @@ export interface CourseUserResponseDto {
    * @format double
    */
   ratio: number;
+  /**
+   * 총 진도율(초)
+   * @format int64
+   */
+  sumStudyTime: number;
   /**
    * 남은수강일수
    * @format int64

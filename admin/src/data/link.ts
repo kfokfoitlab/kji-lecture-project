@@ -114,11 +114,11 @@ export const BIO_HEALTH_DESIGN_LINK_LIST: LinkListData[] = [
     data: [
       {
         text: "프로젝트 수행 가이드 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20수행%20가이드.pdf",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20수행%20가이드.pdf",
       },
       {
         text: "답안 제출 예시 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20답안%20제출%20예시.docx",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20답안%20제출%20예시.docx",
       },
     ],
   },
@@ -128,11 +128,11 @@ export const BIO_HEALTH_DESIGN_LINK_LIST: LinkListData[] = [
     data: [
       {
         text: "프로젝트 수행 가이드 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20수행%20가이드.pdf",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20수행%20가이드.pdf",
       },
       {
         text: "답안 제출 예시 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20답안%20제출%20예시.docx",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20답안%20제출%20예시.docx",
       },
     ],
   },
@@ -142,11 +142,11 @@ export const BIO_HEALTH_DESIGN_LINK_LIST: LinkListData[] = [
     data: [
       {
         text: "프로젝트 수행 가이드 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20수행%20가이드.pdf",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20수행%20가이드.pdf",
       },
       {
         text: "답안 제출 예시 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20답안%20제출%20예시.docx",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20답안%20제출%20예시.docx",
       },
     ],
   },
@@ -156,11 +156,11 @@ export const BIO_HEALTH_DESIGN_LINK_LIST: LinkListData[] = [
     data: [
       {
         text: "프로젝트 수행 가이드 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20수행%20가이드.pdf",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20수행%20가이드.pdf",
       },
       {
         text: "답안 제출 예시 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20답안%20제출%20예시.docx",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20답안%20제출%20예시.docx",
       },
     ],
   },
@@ -170,11 +170,11 @@ export const BIO_HEALTH_DESIGN_LINK_LIST: LinkListData[] = [
     data: [
       {
         text: "프로젝트 수행 가이드 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20수행%20가이드.pdf",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20수행%20가이드.pdf",
       },
       {
         text: "답안 제출 예시 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20답안%20제출%20예시.docx",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20답안%20제출%20예시.docx",
       },
     ],
   },
@@ -184,11 +184,11 @@ export const BIO_HEALTH_DESIGN_LINK_LIST: LinkListData[] = [
     data: [
       {
         text: "프로젝트 수행 가이드 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20수행%20가이드.pdf",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20수행%20가이드.pdf",
       },
       {
         text: "답안 제출 예시 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20답안%20제출%20예시.docx",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20답안%20제출%20예시.docx",
       },
     ],
   },
@@ -198,11 +198,11 @@ export const BIO_HEALTH_DESIGN_LINK_LIST: LinkListData[] = [
     data: [
       {
         text: "프로젝트 수행 가이드 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20수행%20가이드.pdf",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20수행%20가이드.pdf",
       },
       {
         text: "답안 제출 예시 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20답안%20제출%20예시.docx",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20답안%20제출%20예시.docx",
       },
     ],
   },
@@ -212,11 +212,11 @@ export const BIO_HEALTH_DESIGN_LINK_LIST: LinkListData[] = [
     data: [
       {
         text: "프로젝트 수행 가이드 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20수행%20가이드.pdf",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20수행%20가이드.pdf",
       },
       {
         text: "답안 제출 예시 다운",
-        href: "https://kfo-contents.cdn.ntruss.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20답안%20제출%20예시.docx",
+        href: "https://kfo-contents.edge.naverncp.com/tmp/biohealth/%5B바이오헬스-디자인%5D%20미니프로젝트%20답안%20제출%20예시.docx",
       },
     ],
   },
